@@ -374,6 +374,7 @@
             "..." = "cd ../..";
             "...." = "cd ../../..";
             v = "nvim";
+            ns = "tv nix-search-tv";
             vi = "nvim";
             vim = "nvim";
             za = "zellij a --create";
