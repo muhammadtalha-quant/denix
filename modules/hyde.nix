@@ -224,11 +224,6 @@
         lazygit.enable = true;
         neovim = {
           enable = true;
-          # enable maximum support for external tools.
-          withNodeJs = true;
-          withPython3 = true;
-          withRuby = true;
-          withPerl = true;
           # lazyvim core dependencies
           extraPackages = with pkgs; [
             tree-sitter
@@ -242,6 +237,7 @@
           plugins = with pkgs.vimPlugins; [
             LazyVim
           ];
+	  sideloadInitLua = true;
         };
         kitty = {
           enable = true;
