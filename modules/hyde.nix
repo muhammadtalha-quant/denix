@@ -24,6 +24,10 @@
           gpu-screen-recorder
           adw-gtk3
           harlequin
+          eza
+          bat
+          gh
+          ripgrep
         ];
       };
       services = {
@@ -75,15 +79,12 @@
       };
     };
     homeManager = { pkgs, ... }: {
-      imports = [
-        inputs.lazyvim.homeManagerModules.default
-      ];
       programs.home-manager.enable = true;
       home = {
-        pointerCursor.enable = true;
         packages = with pkgs; [
           pipes
           wl-clipboard
+          microfetch
           cmatrix
           google-chrome
           obsidian
@@ -94,6 +95,7 @@
           file-roller
           loupe
           video-downloader
+          zellij
         ];
       };
       wayland.windowManager.hyprland = {
@@ -207,36 +209,25 @@
           };
         };
         lazygit.enable = true;
-
-        lazyvim = {
+        neovim = {
           enable = true;
-          ignoreBuildNotifications = true;
-          extras = {
-            coding.neogen.enable = true;
-            test.core.enable = true;
-            dap = {
-              core.enable = true;
-              nlua.enable = true;
-            };
-            editor = {
-              harpoon2.enable = true;
-              refactoring.enable = true;
-            };
-            lang = {
-              nix.enable = true;
-              markdown.enable = true;
-              clangd.enable = true;
-              cmake.enable = true;
-              python.enable = true;
-              json.enable = true;
-              toml.enable = true;
-              typst.enable = true;
-              yaml.enable = true;
-            };
-          };
-          configFiles = ./_dotfiles/lazyvim;
+          # enable maximum support for external tools. 
+          withNodeJs = true;
+          withPython3 = true;
+          withRuby = true;
+          withPerl = true;
+          extraPackages = with pkgs; [
+              tree-sitter
+              ripgrep
+              curl 
+              fzf 
+              fd 
+              gcc
+          ];
+          plugins = with pkgs.vimPlugins [
+              LazyVim
+          ];
         };
-
         kitty = {
           enable = true;
           font = {
@@ -253,7 +244,6 @@
             notify_on_cmd_finish = "invisible 5.0";
             hide_window_decorations = "yes";
             scrollback_lines = 100000;
-            enabled_layouts = "splits,stack";
           };
           extraConfig = ''
             include themes/noctalia.conf
@@ -270,6 +260,8 @@
             "ctrl+shift+enter" = "no_op";
             "ctrl+alt+enter" = "no_op";
             "ctrl+alt+left" = "no_op";
+            "ctrl+shift+t" = "no_op";
+            "ctrl+shift+q" = "no_op";
             "ctrl+alt+right" = "no_op";
             "ctrl+alt+up" = "no_op";
             "ctrl+alt+down" = "no_op";
@@ -373,6 +365,7 @@
             cat = "bat";
             matrix = "cmatrix -rsbu5";
             pipes = "pipes.sh -p4 -r4000 -R";
+            fetch = "microfetch";
             nixos-switch = "nh os switch";
             nixos-boot = "nh os boot";
             nixos-purge-all = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}; nh os boot";
@@ -398,9 +391,10 @@
       };
       home = {
         pointerCursor = {
-          name = "catppuccin-macchiato-mauve-cursors";
+          enable = true;
+          name = "Bibata-Modern-Ice";
           size = 26;
-          package = pkgs.catppuccin-cursors.macchiatoMauve;
+          package = pkgs.bibata-cursors;
           gtk.enable = true;
           hyprcursor.enable = true;
         };
@@ -415,27 +409,17 @@
           config = {
             common = {
               default = [
+                "hyprland"
                 "gtk"
               ];
               "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
               "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
             };
           };
         };
         userDirs.enable = true;
         localBinInPath = true;
-        mimeApps = {
-          enable = true;
-          defaultApplicationPackages = with pkgs; [
-            neovim
-            nautilus
-            file-roller
-            papers
-            amberol
-            showtime
-            loupe
-          ];
-        };
       };
       gtk = {
         enable = true;
@@ -445,10 +429,7 @@
           size = 11;
         };
         iconTheme = {
-          package = pkgs.catppuccin-papirus-folders.override {
-            flavor = "macchiato";
-            accent = "mauve";
-          };
+          package = pkgs.papirus-icon-theme;
           name = "Papirus";
         };
       };
