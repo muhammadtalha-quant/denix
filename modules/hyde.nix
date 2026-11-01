@@ -274,7 +274,14 @@
             "ctrl+shift+backspace" = "change_font_size all 0";
           };
         };
-
+        television = {
+          enable = true;
+          enableFishIntegration = true;
+        };
+        nix-search-tv = {
+          enable = true;
+          enableTelevisionIntegration = true;
+        };
         git = {
           enable = true;
           signing = {
