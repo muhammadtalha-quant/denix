@@ -10,9 +10,8 @@
       ];
       nixpkgs.config.allowUnfree = true;
       nixpkgs.overlays = [
-          inputs.cachyos-kernels.overlays.pinned
+        inputs.cachyos-kernels.overlays.pinned
       ];
-      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
       environment = {
         sessionVariables = {
           EDITOR = "nvim";
@@ -211,21 +210,21 @@
         lazygit.enable = true;
         neovim = {
           enable = true;
-          # enable maximum support for external tools. 
+          # enable maximum support for external tools.
           withNodeJs = true;
           withPython3 = true;
           withRuby = true;
           withPerl = true;
           extraPackages = with pkgs; [
-              tree-sitter
-              ripgrep
-              curl 
-              fzf 
-              fd 
-              gcc
+            tree-sitter
+            ripgrep
+            curl
+            fzf
+            fd
+            gcc
           ];
-          plugins = with pkgs.vimPlugins [
-              LazyVim
+          plugins = with pkgs.vimPlugins; [
+            LazyVim
           ];
         };
         kitty = {
