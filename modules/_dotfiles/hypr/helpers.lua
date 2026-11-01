@@ -53,8 +53,4 @@ function M.move_window_to_ws(workspace_id)
   )
 end
 
-function M.url_in_chrome(url)
-  return "google-chrome " .. url
-end
-
 return M
