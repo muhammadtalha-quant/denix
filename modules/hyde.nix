@@ -88,6 +88,7 @@
         packages = with pkgs; [
           pipes
           wl-clipboard
+          fastfetch
           cmatrix
           google-chrome
           obsidian
@@ -441,15 +442,22 @@
         userDirs.enable = true;
         userDirs.createDirectories = true;
         localBinInPath = true;
-        configFile."zellij" = {
-          source = ./_dotfiles/zellij;
-          force = true;
-          recursive = true;
-        };
-        configFile."nvim" = {
-          source = ./_dotfiles/nvim;
-          force = true;
-          recursive = true;
+        configFile = {
+          "zellij" = {
+            source = ./_dotfiles/zellij;
+            force = true;
+            recursive = true;
+          };
+          "nvim" = {
+            source = ./_dotfiles/nvim;
+            force = true;
+            recursive = true;
+          };
+          "fastfetch" = {
+            source = ./_dotfiles/fastfetch;
+            recursive = true;
+            force = true;
+          };
         };
       };
       gtk = {
