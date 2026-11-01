@@ -17,7 +17,6 @@
           bluetooth.powerOnBoot = true;
         };
         hardware.facter.reportPath = ./hp-probook-430g2.json;
-        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
       };
   };
 }

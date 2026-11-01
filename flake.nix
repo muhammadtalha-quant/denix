@@ -4,7 +4,6 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    cachyos-kernels.url = "github:xddxdd/nix-cachyos-kernel/release";
     den.url = "github:denful/den";
     disko = {
       url = "github:nix-community/disko/latest";

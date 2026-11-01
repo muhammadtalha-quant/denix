@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{
   den.aspects.hyde = { user, ... }: {
     nixos = { pkgs, ... }: {
       fonts.packages = with pkgs; [
@@ -9,9 +9,6 @@
         noto-fonts-color-emoji
       ];
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.overlays = [
-        inputs.cachyos-kernels.overlays.pinned
-      ];
       environment = {
         sessionVariables = {
           EDITOR = "nvim";
