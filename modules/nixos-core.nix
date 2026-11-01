@@ -6,7 +6,7 @@
           systemd-boot.enable = true;
           efi.canTouchEfiVariables = true;
         };
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
         tmp.cleanOnBoot = lib.mkDefault true;
       };
       i18n = {
@@ -40,6 +40,10 @@
           trusted-users = [
             "root"
             "@wheel"
+          ];
+          allowed-users = [
+            "@wheel"
+            "root"
           ];
         };
         optimise = {
@@ -85,16 +89,10 @@
         };
         systemPackages = with pkgs; [
           nix-output-monitor
-          ripgrep
           zip
-          eza
-          bat
           unzip
           git
-          gh
           vim
-          neovim
-          microfetch
         ];
       };
       time.timeZone = host.timeZone;

@@ -34,45 +34,6 @@ local apps = {
   }
 }
 
-local websites = {
-  [helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.W)] = {
-    cmd = helpers.url_in_chrome("https://web.whatsapp.com"),
-    desc = "Open Whatsapp"
-  },
-  [helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.O)] = {
-    cmd = helpers.url_in_chrome("https://docs.google.com/document/u/0/"),
-    desc = "Open Google Office Suite"
-  },
-  [helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.D)] = {
-    cmd = helpers.url_in_chrome("https://discord.com/channels/@me"),
-    desc = "Open Discord"
-  },
-  [helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.G)] = {
-    cmd = helpers.url_in_chrome("https://github.com/muhammadtalha-quant"),
-    desc = "Open GitHub (My Account)"
-  },
-  [helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.M)] = {
-    cmd = helpers.url_in_chrome("https://mail.google.com/mail/u/0/#inbox"),
-    desc = "Open GMail Inbox"
-  },
-}
-
-
-hl.bind(
-  helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.S),
-  hl.dsp.submap("socialmedia"),
-  {
-    description = "Launch Social Media ([y]outube, [f]acebook, [r]eddit, [i]nstagram and [t]iktok)",
-  }
-)
-
-hl.bind(
-  helpers.register(KEYS.MODIFIER.ALT, KEYS.ALPHABET.A),
-  hl.dsp.submap("ai_mode"),
-  {
-    description = "Launch AI (chatgp[t], [c]laude, [g]emini | [n]otebook and [q]wen)",
-  }
-)
 
 for keybind, app in pairs(apps) do
   hl.bind(
@@ -80,17 +41,6 @@ for keybind, app in pairs(apps) do
     hl.dsp.exec_cmd(app.cmd),
     {
       description = app.desc,
-    }
-  )
-end
-
-
-for keybind, site in pairs(websites) do
-  hl.bind(
-    keybind,
-    hl.dsp.exec_cmd(site.cmd),
-    {
-      description = site.desc,
     }
   )
 end

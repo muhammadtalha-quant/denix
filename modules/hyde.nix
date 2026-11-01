@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{
   den.aspects.hyde = { user, ... }: {
     nixos = { pkgs, ... }: {
       fonts.packages = with pkgs; [
@@ -15,11 +15,17 @@
           VISUAL = "nvim";
           QT_QPA_PLATFORM = "wayland;xcb";
           NIXOS_OZONE_WL = "1";
+          GDK_BACKEND = "wayland,x11,*";
+          SDL_VIDEODRIVER = "wayland";
+          CLUTTER_BACKEND = "wayland";
+          QT_QPA_PLATFORMTHEME = "qt6ct";
+          QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
         };
         systemPackages = with pkgs; [
-          gpu-screen-recorder
+          ripgrep
           adw-gtk3
-          harlequin
         ];
       };
       services = {
@@ -42,12 +48,13 @@
       };
       security = {
         rtkit.enable = true;
-        pam.services.greetd = {
+        pam.services.ly = {
           enableGnomeKeyring = true;
           fprintAuth = true;
         };
       };
       programs = {
+        nix-ld.enable = true;
         hyprland = {
           enable = true;
           xwayland.enable = true;
@@ -67,19 +74,17 @@
           enable = true;
           terminal = "kitty";
         };
+        gpu-screen-recorder.enable = true;
         gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
       };
     };
     homeManager = { pkgs, ... }: {
-      imports = [
-        inputs.lazyvim.homeManagerModules.default
-      ];
       programs.home-manager.enable = true;
       home = {
-        pointerCursor.enable = true;
         packages = with pkgs; [
           pipes
           wl-clipboard
+          fastfetch
           cmatrix
           google-chrome
           obsidian
@@ -89,7 +94,14 @@
           amberol
           file-roller
           loupe
+          harlequin
+          eza
+          bat
           video-downloader
+          zellij
+          gh
+          claude-code
+          _9router
         ];
       };
       wayland.windowManager.hyprland = {
@@ -203,36 +215,23 @@
           };
         };
         lazygit.enable = true;
-
-        lazyvim = {
+        neovim = {
           enable = true;
-          ignoreBuildNotifications = true;
-          extras = {
-            coding.neogen.enable = true;
-            test.core.enable = true;
-            dap = {
-              core.enable = true;
-              nlua.enable = true;
-            };
-            editor = {
-              harpoon2.enable = true;
-              refactoring.enable = true;
-            };
-            lang = {
-              nix.enable = true;
-              markdown.enable = true;
-              clangd.enable = true;
-              cmake.enable = true;
-              python.enable = true;
-              json.enable = true;
-              toml.enable = true;
-              typst.enable = true;
-              yaml.enable = true;
-            };
-          };
-          configFiles = ./_dotfiles/lazyvim;
+          # lazyvim core dependencies
+          extraPackages = with pkgs; [
+            tree-sitter
+            ripgrep
+            curl
+            fzf
+            fd
+            gcc
+          ];
+          # lazyvim core
+          plugins = with pkgs.vimPlugins; [
+            LazyVim
+          ];
+          sideloadInitLua = true;
         };
-
         kitty = {
           enable = true;
           font = {
@@ -249,7 +248,6 @@
             notify_on_cmd_finish = "invisible 5.0";
             hide_window_decorations = "yes";
             scrollback_lines = 100000;
-            enabled_layouts = "splits,stack";
           };
           extraConfig = ''
             include themes/noctalia.conf
@@ -266,6 +264,8 @@
             "ctrl+shift+enter" = "no_op";
             "ctrl+alt+enter" = "no_op";
             "ctrl+alt+left" = "no_op";
+            "ctrl+shift+t" = "no_op";
+            "ctrl+shift+q" = "no_op";
             "ctrl+alt+right" = "no_op";
             "ctrl+alt+up" = "no_op";
             "ctrl+alt+down" = "no_op";
@@ -279,14 +279,21 @@
             "ctrl+shift+backspace" = "change_font_size all 0";
           };
         };
-
+        television = {
+          enable = true;
+          enableFishIntegration = true;
+        };
+        nix-search-tv = {
+          enable = true;
+          enableTelevisionIntegration = true;
+        };
         git = {
           enable = true;
           signing = {
             key = user.publicGPGKey;
             format = "openpgp";
             signByDefault = true;
-            signer = "/run/current-system/sw/bin/gpg2";
+            signer = "${pkgs.gnupg}/bin/gpg2";
           };
           settings = {
             init = {
@@ -305,10 +312,10 @@
             };
             credential = {
               "https://github.com" = {
-                helper = "/run/current-system/sw/bin/gh auth git-credential";
+                helper = "${pkgs.gh}/bin/gh auth git-credential";
               };
               "https://gist.github.com" = {
-                helper = "/run/current-system/sw/bin/gh auth git-credential";
+                helper = "${pkgs.gh}/bin/gh auth git-credential";
               };
             };
             http = {
@@ -323,6 +330,7 @@
           enable = true;
           shellAbbrs = {
             ls = "eza --icons";
+            lc = "eza --code";
             lla = "eza -lgaoh --icons --git";
             ll = "eza -lgoh --icons --git";
             lf = "eza -goh --icons --only-files --show-symlinks --git";
@@ -364,17 +372,24 @@
             "..." = "cd ../..";
             "...." = "cd ../../..";
             v = "nvim";
+            ns = "tv nix-search-tv";
             vi = "nvim";
             vim = "nvim";
+            za = "zellij a --create";
+            zc = "zellij a --create-background";
+            zls = "zellij ls";
+            zk = "zellij k";
+            zd = "zellij d";
+            zka = "zellij ka";
+            zda = "zellij da";
             cat = "bat";
             matrix = "cmatrix -rsbu5";
             pipes = "pipes.sh -p4 -r4000 -R";
             nixos-switch = "nh os switch";
             nixos-boot = "nh os boot";
-            nixos-purge-all = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}; nh os boot";
+            nixos-purge = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}";
             nixos-test = "nh os test";
             nixos-info = "nh os info";
-            nixos-rollback = "nh os rollback --to";
             nixos-update = "nix flake update --flake $FLAKE_PATH";
           };
           shellInit = ''
@@ -394,9 +409,10 @@
       };
       home = {
         pointerCursor = {
-          name = "catppuccin-macchiato-mauve-cursors";
+          enable = true;
+          name = "Bibata-Modern-Ice";
           size = 26;
-          package = pkgs.catppuccin-cursors.macchiatoMauve;
+          package = pkgs.bibata-cursors;
           gtk.enable = true;
           hyprcursor.enable = true;
         };
@@ -411,26 +427,34 @@
           config = {
             common = {
               default = [
+                "hyprland"
                 "gtk"
               ];
               "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
               "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
             };
           };
         };
         userDirs.enable = true;
+        userDirs.createDirectories = true;
         localBinInPath = true;
-        mimeApps = {
-          enable = true;
-          defaultApplicationPackages = with pkgs; [
-            neovim
-            nautilus
-            file-roller
-            papers
-            amberol
-            showtime
-            loupe
-          ];
+        configFile = {
+          "zellij" = {
+            source = ./_dotfiles/zellij;
+            force = true;
+            recursive = true;
+          };
+          "nvim" = {
+            source = ./_dotfiles/nvim;
+            force = true;
+            recursive = true;
+          };
+          "fastfetch" = {
+            source = ./_dotfiles/fastfetch;
+            recursive = true;
+            force = true;
+          };
         };
       };
       gtk = {
@@ -441,11 +465,18 @@
           size = 11;
         };
         iconTheme = {
-          package = pkgs.catppuccin-papirus-folders.override {
-            flavor = "macchiato";
-            accent = "mauve";
-          };
+          package = pkgs.papirus-icon-theme;
           name = "Papirus";
+        };
+      };
+      qt = {
+        enable = true;
+        platformTheme = {
+          name = "qtct";
+          package = with pkgs; [
+            qt6Packages.qt6ct
+            libsForQt5.qt5ct
+          ];
         };
       };
       fonts.fontconfig = {
