@@ -380,6 +380,11 @@
             v = "nvim";
             vi = "nvim";
             vim = "nvim";
+            zls = "zellij ls";
+            zk = "zellij k";
+            zd = "zellij d";
+            zka = "zellij ka";
+            zda = "zellij da";
             cat = "bat";
             matrix = "cmatrix -rsbu5";
             pipes = "pipes.sh -p4 -r4000 -R";
