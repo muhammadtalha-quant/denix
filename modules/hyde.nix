@@ -24,12 +24,8 @@
 
         };
         systemPackages = with pkgs; [
-          adw-gtk3
-          harlequin
-          eza
-          bat
-          gh
           ripgrep
+          adw-gtk3
         ];
       };
       services = {
@@ -105,8 +101,12 @@
           amberol
           file-roller
           loupe
+          harlequin
+          eza
+          bat
           video-downloader
           zellij
+          gh
           claude-code
           _9router
         ];
@@ -229,6 +229,7 @@
           withPython3 = true;
           withRuby = true;
           withPerl = true;
+          # lazyvim core dependencies
           extraPackages = with pkgs; [
             tree-sitter
             ripgrep
@@ -237,6 +238,7 @@
             fd
             gcc
           ];
+          # lazyvim core
           plugins = with pkgs.vimPlugins; [
             LazyVim
           ];
@@ -302,7 +304,7 @@
             key = user.publicGPGKey;
             format = "openpgp";
             signByDefault = true;
-            signer = "/run/current-system/sw/bin/gpg2";
+            signer = "${pkgs.gnupg}/bin/gpg2";
           };
           settings = {
             init = {
@@ -321,10 +323,10 @@
             };
             credential = {
               "https://github.com" = {
-                helper = "/run/current-system/sw/bin/gh auth git-credential";
+                helper = "${pkgs.gh}/bin/gh auth git-credential";
               };
               "https://gist.github.com" = {
-                helper = "/run/current-system/sw/bin/gh auth git-credential";
+                helper = "${pkgs.gh}/bin/gh auth git-credential";
               };
             };
             http = {
