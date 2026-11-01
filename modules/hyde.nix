@@ -237,7 +237,7 @@
           plugins = with pkgs.vimPlugins; [
             LazyVim
           ];
-	  sideloadInitLua = true;
+          sideloadInitLua = true;
         };
         kitty = {
           enable = true;
@@ -380,8 +380,8 @@
             v = "nvim";
             vi = "nvim";
             vim = "nvim";
-	    za = "zellij a --create";
-	    zc = "zellij a --create-background";
+            za = "zellij a --create";
+            zc = "zellij a --create-background";
             zls = "zellij ls";
             zk = "zellij k";
             zd = "zellij d";
@@ -393,7 +393,7 @@
             fetch = "microfetch";
             nixos-switch = "nh os switch";
             nixos-boot = "nh os boot";
-            nixos-purge-all = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}; nh os boot";
+            nixos-purge = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}";
             nixos-test = "nh os test";
             nixos-info = "nh os info";
             nixos-update = "nix flake update --flake $FLAKE_PATH";
@@ -447,6 +447,11 @@
         localBinInPath = true;
         configFile."zellij" = {
           source = ./_dotfiles/zellij;
+          force = true;
+          recursive = true;
+        };
+        configFile."nvim" = {
+          source = ./_dotfiles/nvim;
           force = true;
           recursive = true;
         };
