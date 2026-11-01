@@ -418,7 +418,13 @@
           };
         };
         userDirs.enable = true;
+        userDirs.createDirectories = true;
         localBinInPath = true;
+        configFile."zellij" = {
+          source = ./_dotfiles/zellij;
+          force = true;
+          recursive = true;
+        };
       };
       gtk = {
         enable = true;
