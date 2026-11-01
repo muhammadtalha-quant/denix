@@ -12,6 +12,7 @@
       nixpkgs.overlays = [
           inputs.cachyos-kernels.overlays.pinned
       ];
+      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
       environment = {
         sessionVariables = {
           EDITOR = "nvim";
