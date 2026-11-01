@@ -380,6 +380,8 @@
             v = "nvim";
             vi = "nvim";
             vim = "nvim";
+	    za = "zellij a --create";
+	    zc = "zellij a --create-background";
             zls = "zellij ls";
             zk = "zellij k";
             zd = "zellij d";
@@ -394,7 +396,6 @@
             nixos-purge-all = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}; nh os boot";
             nixos-test = "nh os test";
             nixos-info = "nh os info";
-            nixos-rollback = "nh os rollback --to";
             nixos-update = "nix flake update --flake $FLAKE_PATH";
           };
           shellInit = ''
