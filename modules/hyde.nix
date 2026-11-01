@@ -330,6 +330,7 @@
           enable = true;
           shellAbbrs = {
             ls = "eza --icons";
+            lc = "eza --code";
             lla = "eza -lgaoh --icons --git";
             ll = "eza -lgoh --icons --git";
             lf = "eza -goh --icons --only-files --show-symlinks --git";
