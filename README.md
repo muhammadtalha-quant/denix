@@ -1,10 +1,10 @@
-# Nixden
+# Denix
 
 A lightweight, aspect-oriented, multi-host Nix configuration built on [Den](https://den.denful.dev).
 
-## The Look and Feel of Nixden
+## The Look and Feel of Denix 
 
-Nixden comes with the iconic Catppuccin color palette.
+Denix comes with the iconic Catppuccin color palette.
 
 - For light mode, it uses Catppuccin Latte with ![Static Badge](https://img.shields.io/badge/-m?logoColor=%238839ef&labelColor=%238839ef&color=%238839ef) as primary accent.
 - For dark mode, it uses Catppuccin Macchiato with ![Static Badge](https://img.shields.io/badge/-m?logoColor=%23c6a0f6&labelColor=%23c6a0f6&color=%23c6a0f6) as primary accent.
