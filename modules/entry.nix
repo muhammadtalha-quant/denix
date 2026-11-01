@@ -20,9 +20,6 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lazyvim = {
-      url = "github:pfassina/lazyvim-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    cachyos-kernels.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 }
