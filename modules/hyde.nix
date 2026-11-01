@@ -107,6 +107,8 @@
           loupe
           video-downloader
           zellij
+          claude-code
+          _9router
         ];
       };
       wayland.windowManager.hyprland = {
