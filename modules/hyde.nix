@@ -78,10 +78,7 @@
           enable = true;
           terminal = "kitty";
         };
-        gpu-screen-recorder = {
-          enable = true;
-          ui.enable = true;
-        };
+        gpu-screen-recorder.enable = true;
         gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
       };
     };
@@ -91,7 +88,6 @@
         packages = with pkgs; [
           pipes
           wl-clipboard
-          microfetch
           cmatrix
           google-chrome
           obsidian
