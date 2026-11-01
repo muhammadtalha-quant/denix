@@ -445,6 +445,16 @@
           name = "Papirus";
         };
       };
+      qt = {
+        enable = true;
+        platformTheme = {
+          name = "qtct";
+          package = with pkgs; [
+            qt6Packages.qt6ct
+            libsForQt5.qt5ct
+          ];
+        };
+      };
       fonts.fontconfig = {
         enable = true;
         antialiasing = true;
