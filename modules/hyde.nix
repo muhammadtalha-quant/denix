@@ -59,7 +59,7 @@
       };
       security = {
         rtkit.enable = true;
-        pam.services.greetd = {
+        pam.services.ly = {
           enableGnomeKeyring = true;
           fprintAuth = true;
         };
