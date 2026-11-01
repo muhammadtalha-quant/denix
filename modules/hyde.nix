@@ -27,7 +27,6 @@
 
         };
         systemPackages = with pkgs; [
-          gpu-screen-recorder
           adw-gtk3
           harlequin
           eza
@@ -84,6 +83,10 @@
         nautilus-open-any-terminal = {
           enable = true;
           terminal = "kitty";
+        };
+        gpu-screen-recorder = {
+          enable = true;
+          ui.enable = true;
         };
         gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
       };
