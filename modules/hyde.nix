@@ -38,6 +38,10 @@
       };
       services = {
         power-profiles-daemon.enable = true;
+        cloudflare-warp = {
+          enable = true;
+          openFirewall = true;
+        };
         upower.enable = true;
         fprintd.enable = true;
         udisks2.enable = true;
