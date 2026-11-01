@@ -764,7 +764,7 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Ayu"
+builtin = "Catppuccin"
 community_palette = "Catppuccin Macchiato Mauve"
 custom_palette = ""
 mode = "dark"
@@ -775,8 +775,8 @@ sync_color_scheme = true
 wallpaper_scheme = "faithful"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "qt", "starship" ]
-    community_ids = [ "obsidian", "papirus-icons", "bat", "fzf" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kitty", "qt", "starship" ]
+    community_ids = [ "lazyvim", "libreoffice", "obsidian", "obs", "papirus-icons", "lazygit" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -967,6 +967,7 @@ type = "volume"
 interactive = true
 show_condition = false
 type = "weather"
+
 
 [widget.workspaces]
 active_pill_size = 1.8500000000000001
