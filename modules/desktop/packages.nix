@@ -4,9 +4,7 @@
       fonts.packages = with pkgs; [
         newcomputermodern
       ];
-      environment.systemPackages = with pkgs; [
-        ripgrep
-      ];
+      environment.systemPackages = [ ];
 
     };
     homeManager = { pkgs, ... }: {

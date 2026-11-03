@@ -8,6 +8,7 @@
     };
     homeManager = {
       programs = {
+        ripgrep.enable = true;
         starship = {
           enable = true;
           enableFishIntegration = true;
