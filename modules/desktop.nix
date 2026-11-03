@@ -121,16 +121,6 @@
             force = true;
             recursive = true;
           };
-          "nvim" = {
-            source = ./_dotfiles/nvim;
-            force = true;
-            recursive = true;
-          };
-          "fastfetch" = {
-            source = ./_dotfiles/fastfetch;
-            recursive = true;
-            force = true;
-          };
         };
       };
       gtk = {
