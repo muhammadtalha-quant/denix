@@ -26,6 +26,7 @@
       };
       homeManager = { host, ... }: {
         programs.home-manager.enable = true;
+        home.pointerCursor.enable = true;
         home.stateVersion = host.stateVersion;
       };
     };
