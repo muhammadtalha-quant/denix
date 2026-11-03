@@ -99,9 +99,9 @@ in
         inputs.stylix.nixosModules.stylix
       ];
       stylix =
-        if variant == "latte" then
+        if variant == "light" then
           latte { inherit pkgs; }
-        else if variant == "macchiato" then
+        else if variant == "dark" then
           macchiato { inherit pkgs; }
         else
           default;

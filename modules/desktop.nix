@@ -12,7 +12,7 @@
       desktop.fish
       desktop.vcs
       desktop.neovim
-      (extras.theme-catppuccin "macchiato")
+      (extras.theme-catppuccin "dark")
     ];
   };
 }
