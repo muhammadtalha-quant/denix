@@ -18,7 +18,6 @@
       home.packages = with pkgs; [
         pipes
         wl-clipboard
-        fastfetch
         cmatrix
         google-chrome
         obsidian
@@ -33,7 +32,6 @@
         bat
         video-downloader
         zellij
-        gh
         claude-code
         _9router
       ];
