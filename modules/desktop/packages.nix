@@ -3,14 +3,9 @@
     nixos = { pkgs, ... }: {
       fonts.packages = with pkgs; [
         newcomputermodern
-        inter
-        noto-fonts
-        nerd-fonts.jetbrains-mono
-        noto-fonts-color-emoji
       ];
       environment.systemPackages = with pkgs; [
         ripgrep
-        adw-gtk3
       ];
 
     };
