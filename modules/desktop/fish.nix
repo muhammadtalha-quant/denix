@@ -1,5 +1,5 @@
 {
-  desktop.fish = { user, ... }: {
+  desktop.fish = { user }: {
     homeManager.programs.fish = { pkgs, ... }: {
       enable = true;
       shellAbbrs = {
@@ -59,6 +59,7 @@
         cat = "bat";
         matrix = "cmatrix -rsbu5";
         pipes = "pipes.sh -p4 -r4000 -R";
+        nixos-repl = "nix repl --expr 'let pkgs = import <nixpkgs> {}; in { inherit pkgs; inherit (pkgs) lib; }'";
         nixos-switch = "nh os switch";
         nixos-boot = "nh os boot";
         nixos-purge = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}";
