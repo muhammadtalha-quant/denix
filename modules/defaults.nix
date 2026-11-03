@@ -16,6 +16,7 @@
         imports = [
           inputs.home-manager.nixosModules.home-manager
         ];
+        nixpkgs.config.allowUnfree = true;
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -24,6 +25,7 @@
         system.stateVersion = host.stateVersion;
       };
       homeManager = { host, ... }: {
+        programs.home-manager.enable = true;
         home.stateVersion = host.stateVersion;
       };
     };
