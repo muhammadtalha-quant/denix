@@ -76,9 +76,6 @@
           autoLoad = false;
         };
       };
-      extraConfig = ''
-        require("noctalia")
-      '';
     };
   };
 }
