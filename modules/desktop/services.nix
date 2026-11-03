@@ -17,6 +17,12 @@
         displayManager.ly.enable = true;
         libinput.enable = true;
         pcscd.enable = true;
+        syncthing = {
+          enable = true;
+          overrideFolders = false;
+          overrideDevices = false;
+          openDefaultPorts = true;
+        };
       };
       security = {
         rtkit.enable = true;
