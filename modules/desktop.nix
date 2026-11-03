@@ -10,10 +10,8 @@
           GDK_BACKEND = "wayland,x11,*";
           SDL_VIDEODRIVER = "wayland";
           CLUTTER_BACKEND = "wayland";
-          QT_QPA_PLATFORMTHEME = "qt6ct";
           QT_AUTO_SCREEN_SCALE_FACTOR = "1";
           QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
         };
       };
       services = {
@@ -23,7 +21,6 @@
         udisks2.enable = true;
         gnome.gnome-keyring.enable = true;
         gvfs.enable = true;
-        pulseaudio.enable = false;
         pipewire = {
           enable = true;
           alsa.enable = true;
@@ -43,11 +40,6 @@
       };
       programs = {
         nix-ld.enable = true;
-        hyprland = {
-          enable = true;
-          xwayland.enable = true;
-          withUWSM = false;
-        };
         noctalia = {
           enable = true;
           recommendedServices.enable = true;
@@ -92,13 +84,11 @@
         };
         cava = {
           enable = true;
-          settings.color.theme = "noctalia";
         };
         btop = {
           enable = true;
           settings = {
             update_ms = 100;
-            color_theme = "noctalia";
           };
         };
         lazygit.enable = true;
@@ -113,22 +103,13 @@
             fd
             gcc
           ];
-          # lazyvim core
-          plugins = with pkgs.vimPlugins; [
-            LazyVim
-          ];
           sideloadInitLua = true;
         };
         kitty = {
           enable = true;
-          font = {
-            name = "JetBrainsMono Nerd Font Mono";
-            size = 14;
-          };
           settings = {
             remember_window_size = false;
             cursor_trail = 1;
-            background_opacity = 0.93;
             confirm_os_window_close = 0;
             enable_audio_bell = false;
             scrollback = "never";
@@ -136,9 +117,6 @@
             hide_window_decorations = "yes";
             scrollback_lines = 100000;
           };
-          extraConfig = ''
-            include themes/noctalia.conf
-          '';
           shellIntegration.enableFishIntegration = true;
           enableGitIntegration = true;
           keybindings = {
@@ -213,97 +191,8 @@
             };
           };
         };
-        fish = {
-          enable = true;
-          shellAbbrs = {
-            ls = "eza --icons";
-            lc = "eza --code";
-            lla = "eza -lgaoh --icons --git";
-            ll = "eza -lgoh --icons --git";
-            lf = "eza -goh --icons --only-files --show-symlinks --git";
-            ldir = "eza -goh --icons --only-dirs --show-symlinks --git";
-            laf = "eza -gaoh --icons --only-files --show-symlinks --git";
-            ladir = "eza -gaoh --icons --only-dirs --show-symlinks --git";
-            llaf = "eza -lgaoh --icons --only-files --show-symlinks --git";
-            lladir = "eza -lgaoh --icons --only-dirs --show-symlinks --git";
-            llf = "eza -lgoh --icons --only-files --show-symlinks --git";
-            lldir = "eza -lgoh --icons --only-dirs --show-symlinks --git";
-            la = "eza -ah --icons";
-            lt = "eza --tree --git";
-            "000" = "chmod 000";
-            "644" = "chmod 644";
-            "666" = "chmod 666";
-            "755" = "chmod 755";
-            "777" = "chmod 777";
-            "000r" = "chmod -R 000";
-            "644r" = "chmod -R 644";
-            "666r" = "chmod -R 666";
-            "755r" = "chmod -R 755";
-            "777r" = "chmod -R 777";
-            snano = "sudo nano";
-            mkdir = "mkdir -p";
-            sumkdir = "sudo mkdir -p";
-            cp = "cp -rv";
-            mv = "mv -v";
-            rm = "rm -frv";
-            less = "less -R";
-            sucp = "sudo cp -rv";
-            sumv = "sudo mv -v";
-            surm = "sudo rm -frv";
-            cls = "clear";
-          };
-          preferAbbrs = true;
-          shellAliases = {
-            home = "cd ~";
-            ".." = "cd ..";
-            "..." = "cd ../..";
-            "...." = "cd ../../..";
-            v = "nvim";
-            ns = "tv nix-search-tv";
-            vi = "nvim";
-            vim = "nvim";
-            za = "zellij a --create";
-            zc = "zellij a --create-background";
-            zls = "zellij ls";
-            zk = "zellij k";
-            zd = "zellij d";
-            zka = "zellij ka";
-            zda = "zellij da";
-            cat = "bat";
-            matrix = "cmatrix -rsbu5";
-            pipes = "pipes.sh -p4 -r4000 -R";
-            nixos-switch = "nh os switch";
-            nixos-boot = "nh os boot";
-            nixos-purge = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}";
-            nixos-test = "nh os test";
-            nixos-info = "nh os info";
-            nixos-update = "nix flake update --flake $FLAKE_PATH";
-          };
-          shellInit = ''
-            set -U fish_greeting 
-          '';
-          plugins = with pkgs.fishPlugins; [
-            {
-              name = "autopair";
-              inherit (autopair) src;
-            }
-          ];
-          functions.clh.body = ''
-            echo yes | history clear
-            clear && fish
-          '';
-        };
       };
-      home = {
-        pointerCursor = {
-          enable = true;
-          name = "Bibata-Modern-Ice";
-          size = 26;
-          package = pkgs.bibata-cursors;
-          gtk.enable = true;
-          hyprcursor.enable = true;
-        };
-      };
+
       xdg = {
         portal = {
           enable = true;
