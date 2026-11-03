@@ -5,7 +5,6 @@
         newcomputermodern
       ];
       environment.systemPackages = [ ];
-
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
@@ -13,7 +12,6 @@
         wl-clipboard
         cmatrix
         google-chrome
-        obsidian
         nautilus
         papers
         showtime
