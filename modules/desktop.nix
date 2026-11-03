@@ -26,14 +26,6 @@
         };
       };
       programs = {
-        noctalia = {
-          enable = true;
-          recommendedServices.enable = true;
-          systemd = {
-            enable = true;
-            target = "hyprland-session.target";
-          };
-        };
         localsend.enable = true;
         gpu-screen-recorder.enable = true;
       };
@@ -47,42 +39,13 @@
         devenv = {
           enable = true;
           enableFishIntegration = true;
-          settings = {
-            version = 1;
-            shell = {
-              prompt_prefix = false;
-            };
-            tui = {
-              statusline.enabled = false;
-            };
-          };
         };
-        noctalia = {
-          enable = true;
-          systemd.enable = true;
-          settings = ./_dotfiles/noctalia/config.toml;
-        };
-        cava = {
-          enable = true;
-        };
+        cava.enable = true;
         btop = {
           enable = true;
           settings = {
             update_ms = 100;
           };
-        };
-        neovim = {
-          enable = true;
-          # lazyvim core dependencies
-          extraPackages = with pkgs; [
-            tree-sitter
-            ripgrep
-            curl
-            fzf
-            fd
-            gcc
-          ];
-          sideloadInitLua = true;
         };
         television = {
           enable = true;
