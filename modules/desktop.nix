@@ -1,4 +1,4 @@
-{ desktop, ... }: {
+{ extras, desktop, ... }: {
   den.aspects.hyprland-desktop = { user, ... }: {
     includes = [
       desktop.hyprland
@@ -12,6 +12,7 @@
       desktop.fish
       desktop.vcs
       desktop.neovim
+      (extras.theme-catppuccin "macchiato")
     ];
   };
 }
