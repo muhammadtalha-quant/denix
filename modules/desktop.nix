@@ -56,68 +56,6 @@
           enableTelevisionIntegration = true;
         };
       };
-      xdg = {
-        portal = {
-          enable = true;
-          extraPortals = [
-            pkgs.xdg-desktop-portal-gtk
-            pkgs.xdg-desktop-portal-hyprland
-          ];
-          config = {
-            common = {
-              default = [
-                "hyprland"
-                "gtk"
-              ];
-              "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-              "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-            };
-          };
-        };
-        userDirs.enable = true;
-        userDirs.createDirectories = true;
-        localBinInPath = true;
-        configFile = {
-          "zellij" = {
-            source = ./_dotfiles/zellij;
-            force = true;
-            recursive = true;
-          };
-        };
-      };
-      gtk = {
-        enable = true;
-        font = {
-          name = "Inter Variable";
-          package = pkgs.inter;
-          size = 11;
-        };
-        iconTheme = {
-          package = pkgs.papirus-icon-theme;
-          name = "Papirus";
-        };
-      };
-      qt = {
-        enable = true;
-        platformTheme = {
-          name = "qtct";
-          package = with pkgs; [
-            qt6Packages.qt6ct
-            libsForQt5.qt5ct
-          ];
-        };
-      };
-      fonts.fontconfig = {
-        enable = true;
-        antialiasing = true;
-        defaultFonts = {
-          monospace = [ "Noto Sans" ];
-          sansSerif = [ "Inter Variable" ];
-          serif = [ "JetBrainsMono Nerd Font Mono" ];
-          emoji = [ "Noto Color Emoji" ];
-        };
-      };
     };
   };
 }
