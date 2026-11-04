@@ -625,7 +625,6 @@
           mpris = {
             blacklist = [ ];
           };
-          niri_overview_type_to_launch_enabled = false;
           offline_mode = false;
           panel = {
             border_color = "outline";
@@ -759,7 +758,6 @@
           show_location = true;
           telemetry_enabled = false;
           time_format = "{:%I:%M %p}";
-          umbriel_overview_type_to_launch_enabled = false;
           window_switcher = {
             current_workspace_only = false;
             mru = false;
@@ -767,7 +765,7 @@
             show_app_icon = true;
             show_caption = true;
             show_count = true;
-            style = "compact";
+            style = "carousel";
           };
         };
         storage = {
