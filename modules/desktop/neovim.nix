@@ -4,7 +4,7 @@
     programs.nvf = {
       enable = true;
       enableManpages = true;
-      vim = {
+      settings.vim = {
         keymaps = [
           {
             key = "<Esc>";

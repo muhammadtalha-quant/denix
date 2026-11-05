@@ -1,8 +1,10 @@
 {
   desktop.vcs = { user }: {
-    nixos.programs = { pkgs, ... }: {
-      gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
-      seahorse.enable = true;
+    nixos = { pkgs, ... }: {
+      programs = {
+        gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
+        seahorse.enable = true;
+      };
     };
     homeManager = { pkgs, ... }: {
       home.packages = [ pkgs.gh ];
