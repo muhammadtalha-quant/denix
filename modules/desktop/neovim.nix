@@ -31,6 +31,11 @@
             file4 = "<C-4>";
           };
         };
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+          registers = "unnamedplus";
+        };
         diagnostics.enable = true;
         lsp.enable = true;
         lsp.formatOnSave = true;
@@ -53,6 +58,9 @@
           snippets = {
             enable = true;
             setupOpts.snippets = [
+              (lib.generators.mkLuaInline ''
+                require("mini.snippets").gen_loader.from_file(${pkgs.vimPlugins.friendly-snippets}/snippets/global.json)
+              '')
               (lib.generators.mkLuaInline ''
                 require("mini.snippets").gen_loader.from_lang()
               '')
@@ -97,7 +105,21 @@
             lsp.servers = [ "ty" ];
             format.type = [ "ruff" ];
           };
+          json.enable = true;
+          toml = {
+            enable = true;
+            lsp.servers = [ "tombi" ];
+            format.type = [ "tombi" ];
+          };
+          yaml.enable = true;
+          typst = {
+            enable = true;
+            extensions.typst-preview-nvim.enable = true;
+          };
         };
+        luaConfigPost = ''
+          require("mini.snippets").start_lsp_server()
+        '';
       };
     };
   };
