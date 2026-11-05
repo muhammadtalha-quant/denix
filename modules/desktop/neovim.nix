@@ -5,6 +5,14 @@
       enable = true;
       enableManpages = true;
       vim = {
+        keymaps = [
+          {
+            key = "<Esc>";
+            mode = "n";
+            silent = true;
+            action = ":noh";
+          }
+        ];
         additionalRuntimePaths = [
           "${pkgs.vimPlugins.friendly-snippets}"
         ];
@@ -23,12 +31,14 @@
             file4 = "<C-4>";
           };
         };
+        git.gitsigns.enable = true;
         mini = {
           ai.enable = true;
+          pick.enable = true;
           pairs.enable = true;
           icons.enable = true;
+          clue.enable = true;
           files.enable = true;
-          visits.enable = true;
           completion.enable = true;
           snippets = {
             enable = true;
