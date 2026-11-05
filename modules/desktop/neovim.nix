@@ -130,7 +130,6 @@
             extensions.typst-preview-nvim.enable = true;
           };
         };
-
       };
     };
   };
