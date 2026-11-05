@@ -649,7 +649,7 @@
             session_placement = "attached";
             session_position = "auto";
             shadow = true;
-            transparency_mode = "glass";
+            transparency_mode = "solid";
             wallpaper_placement = "attached";
             wallpaper_position = "auto";
             wallpaper_show_names = true;
