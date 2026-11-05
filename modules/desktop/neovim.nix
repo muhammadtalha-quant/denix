@@ -39,7 +39,7 @@
         lsp = {
           enable = true;
           formatOnSave = true;
-          lspKind.enable = true;
+          lspkind.enable = true;
           trouble.enable = true;
         };
         binds.whichKey = {
