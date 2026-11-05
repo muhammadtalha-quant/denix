@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  desktop.neovim.nixos = { lib, pkgs, ... }: {
+  desktop.neovim.nixos = {
     imports = [ inputs.nvf.nixosModules.default ];
     programs.nvf = {
       enable = true;
