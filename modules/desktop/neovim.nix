@@ -71,8 +71,6 @@
           tabline.enable = true;
           notify.enable = true;
           basics.enable = true;
-          starter.enable = true;
-          sessions.enable = true;
           animate.enable = true;
           surround.enable = true;
           hipatterns.enable = true;
