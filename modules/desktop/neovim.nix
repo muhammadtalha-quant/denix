@@ -59,7 +59,7 @@
             enable = true;
             setupOpts.snippets = [
               (lib.generators.mkLuaInline ''
-                require("mini.snippets").gen_loader.from_file(${pkgs.vimPlugins.friendly-snippets}/snippets/global.json)
+                require("mini.snippets").gen_loader.from_file("${pkgs.vimPlugins.friendly-snippets}/snippets/global.json")
               '')
               (lib.generators.mkLuaInline ''
                 require("mini.snippets").gen_loader.from_lang()

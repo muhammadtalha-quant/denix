@@ -3,11 +3,10 @@
     nixos.programs.hyprland = {
       enable = true;
       xwayland.enable = true;
-      withUWSM = false;
+      withUWSM = true;
     };
     homeManager.wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = true;
       extraLuaFiles = {
         "hyprland.events" = {
           content = ./_dotfiles/hypr/events.lua;
