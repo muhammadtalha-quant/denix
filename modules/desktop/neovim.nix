@@ -13,9 +13,6 @@
             action = ":noh";
           }
         ];
-        additionalRuntimePaths = [
-          "${pkgs.vimPlugins.friendly-snippets}"
-        ];
         options = {
           tabstop = 4;
           shiftwidth = 4;
@@ -31,52 +28,70 @@
             file4 = "<C-4>";
           };
         };
+        fzf-lua.enable = true;
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
           registers = "unnamedplus";
         };
         diagnostics.enable = true;
-        lsp.enable = true;
-        lsp.formatOnSave = true;
+        diagnostics.config.virtual_lines = true;
+        lsp = {
+          enable = true;
+          formatOnSave = true;
+          lspKind.enable = true;
+          trouble.enable = true;
+        };
+        binds.whichKey = {
+          enable = true;
+          setupOpts.preset = "helix";
+        };
+        notes.todo-comments.enable = true;
+        notify.nvim-notify.enable = true;
         debugger = {
           nvim-dap.enable = true;
           nvim-dap.ui.enable = true;
         };
+        autocomplete.blink-cmp = {
+          enable = true;
+          friendly-snippets.enable = true;
+        };
+
+        filetree.neo-tree.enable = true;
+        visuals = {
+          blink-indent.enable = true;
+          fidget-nvim.enable = true;
+          neoscroll-nvim.enable = true;
+          nvim-cursorline.enable = true;
+          nvim-web-devicons.enable = true;
+          tiny-devicons-auto-colors.enable = true;
+        };
+        git.gitsigns.enable = true;
         utility.grug-far-nvim.enable = true;
+        statusline.lualine = {
+          enable = true;
+          integrations.breadcrumbs = {
+            nvim-navic.enable = true;
+            vanilla.separator.symbol = " > ";
+          };
+        };
+        tabline.nvimBufferline = {
+          enable = true;
+          mappings = {
+            closeCurrent = "<leader>bd";
+            cycleNext = "]b";
+            cyclePrevious = "[b";
+            moveNext = "]B";
+            movePrevious = "[B";
+            pick = null;
+          };
+        };
         mini = {
           ai.enable = true;
-          pick.enable = true;
-          git.enable = true;
-          bufremove.enable = true;
           pairs.enable = true;
-          icons.enable = true;
-          clue.enable = true;
-          indentscope.enable = true;
-          files.enable = true;
-          completion.enable = true;
-          snippets = {
-            enable = true;
-            setupOpts.snippets = [
-              (lib.generators.mkLuaInline ''
-                require("mini.snippets").gen_loader.from_file("${pkgs.vimPlugins.friendly-snippets}/snippets/global.json")
-              '')
-              (lib.generators.mkLuaInline ''
-                require("mini.snippets").gen_loader.from_lang()
-              '')
-            ];
-          };
-          extra.enable = true;
-          statusline.enable = true;
-          tabline.enable = true;
-          notify.enable = true;
           basics.enable = true;
-          animate.enable = true;
           surround.enable = true;
           hipatterns.enable = true;
-          cursorword.enable = true;
-          bracketed.enable = true;
-          cmdline.enable = true;
         };
         languages = {
           enableDAP = true;
@@ -115,9 +130,7 @@
             extensions.typst-preview-nvim.enable = true;
           };
         };
-        luaConfigPost = ''
-          require("mini.snippets").start_lsp_server()
-        '';
+
       };
     };
   };
