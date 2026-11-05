@@ -123,6 +123,7 @@
                 utility.grug-far-nvim.enable = true;
                 statusline.lualine.enable = true;
                 ui.nvim-highlight-colors.enable = true;
+                ui.borders.enable = true;
                 tabline.nvimBufferline = {
                     enable = true;
                     mappings = {
