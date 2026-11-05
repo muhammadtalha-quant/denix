@@ -31,13 +31,23 @@
             file4 = "<C-4>";
           };
         };
-        git.gitsigns.enable = true;
+        diagnostics.enable = true;
+        lsp.enable = true;
+        lsp.formatOnSave = true;
+        debugger = {
+          nvim-dap.enable = true;
+          nvim-dap.ui.enable = true;
+        };
+        utility.grug-far-nvim.enable = true;
         mini = {
           ai.enable = true;
           pick.enable = true;
+          git.enable = true;
+          bufremove.enable = true;
           pairs.enable = true;
           icons.enable = true;
           clue.enable = true;
+          indentscope.enable = true;
           files.enable = true;
           completion.enable = true;
           snippets = {
@@ -61,6 +71,32 @@
           cursorword.enable = true;
           bracketed.enable = true;
           cmdline.enable = true;
+        };
+        languages = {
+          enableDAP = true;
+          enableExtraDiagnostics = false;
+          enableFormat = true;
+          enableTreesitter = true;
+          nix = {
+            enable = true;
+            format.type = [ "nixfmt" ];
+          };
+          markdown = {
+            enable = true;
+            extensions.render-markdown-nvim.enable = true;
+            format.type = [ "rumdl" ];
+            lsp.servers = [ "rumdl" ];
+          };
+          clang = {
+            enable = true;
+            cHeader = true;
+          };
+          cmake.enable = true;
+          python = {
+            enable = true;
+            lsp.servers = [ "ty" ];
+            format.type = [ "ruff" ];
+          };
         };
       };
     };
