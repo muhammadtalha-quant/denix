@@ -124,6 +124,8 @@
                 statusline.lualine.enable = true;
                 ui.nvim-highlight-colors.enable = true;
                 ui.borders.enable = true;
+                ui.borders.plugins.which-key.enable = true;
+                ui.colorful-menu-nvim.enable = true;
                 tabline.nvimBufferline = {
                     enable = true;
                     mappings = {
