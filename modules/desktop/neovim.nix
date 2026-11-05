@@ -10,13 +10,48 @@
             key = "<Esc>";
             mode = "n";
             silent = true;
-            action = ":noh";
+            action = ":noh<CR>";
           }
           {
             key = "<leader>qq";
             mode = "n";
             silent = true;
-            action = ":wqa";
+            action = ":wqa<CR>";
+          }
+          {
+            key = "<leader>sr";
+            mode = "n";
+            silent = true;
+            action = ":GrugFar<CR>";
+          }
+          {
+            key = "<leader>wd";
+            mode = "n";
+            silent = true;
+            action = "<C-w>q";
+          }
+          {
+            key = "<leader>-";
+            mode = "n";
+            silent = true;
+            action = ":split<CR>";
+          }
+          {
+            key = "<leader>|";
+            mode = "n";
+            silent = true;
+            action = ":vsplit<CR>";
+          }
+          {
+
+            key = "<C-s>";
+            mode = [
+              "n"
+              "v"
+              "i"
+            ];
+            silent = true;
+            action = ":w<CR>";
           }
         ];
         options = {
@@ -81,6 +116,7 @@
             vanilla.separator.symbol = " > ";
           };
         };
+        ui.nvim-highlight-colors.enable = true;
         tabline.nvimBufferline = {
           enable = true;
           mappings = {
@@ -97,7 +133,6 @@
           pairs.enable = true;
           basics.enable = true;
           surround.enable = true;
-          hipatterns.enable = true;
         };
         languages = {
           enableDAP = true;
