@@ -12,6 +12,12 @@
             silent = true;
             action = ":noh";
           }
+          {
+            key = "<leader>qq";
+            mode = "n";
+            silent = true;
+            action = ":wqa";
+          }
         ];
         options = {
           tabstop = 4;
