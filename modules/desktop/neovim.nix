@@ -95,7 +95,6 @@
                     enable = true;
                     formatOnSave = true;
                     lspkind.enable = true;
-                    trouble.enable = true;
                 };
                 binds.whichKey = {
                     enable = true;
