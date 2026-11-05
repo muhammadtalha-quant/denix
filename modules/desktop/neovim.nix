@@ -38,6 +38,7 @@
               '')
             ];
           };
+          extra.enable = true;
           statusline.enable = true;
           tabline.enable = true;
           notify.enable = true;
