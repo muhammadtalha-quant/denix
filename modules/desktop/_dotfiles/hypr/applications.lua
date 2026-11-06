@@ -24,8 +24,8 @@ local apps = {
   },
   [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.C)]            =
   {
-    cmd = "kitty nvim",
-    desc = "Open Neovim"
+    cmd = "zeditor",
+    desc = "Open Zed Editor"
   },
   [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.N)]            =
   {
