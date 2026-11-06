@@ -22,11 +22,6 @@ local apps = {
     cmd = "localsend_app",
     desc = "Open Localsend"
   },
-  [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.C)]            =
-  {
-    cmd = "kitty nvim",
-    desc = "Open Neovim"
-  },
   [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.N)]            =
   {
     cmd = "obsidian",

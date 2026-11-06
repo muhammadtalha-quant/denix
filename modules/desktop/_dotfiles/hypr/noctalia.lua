@@ -16,8 +16,6 @@ local non_repeating_ipc_calls = {
   [helpers.register(KEYS.MODIFIER.ALT, KEYS.SPECIAL.TAB)] = { cmd = "noctalia msg window-switcher", desc = "Toggle Window Switcher" },
   [helpers.register(KEYS.MODIFIER.CTRL, KEYS.MODIFIER.ALT, KEYS.NAVIGATION.DELETE)] = { cmd = "noctalia msg panel-toggle session", desc = "Toggle Session Menu" },
   [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.L)] = { cmd = "noctalia msg session lock", desc = "Lock Session" },
-  [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.W)] = { cmd = "noctalia msg wallpaper-random", desc = "Activate Random Wallpaper" },
-  [helpers.register(KEYS.MODIFIER.SUPER, KEYS.MODIFIER.SHIFT, KEYS.ALPHABET.T)] = { cmd = "noctalia msg theme-mode-toggle && noctalia msg wallpaper-random", desc = "Toogle Theme Polarity" },
 }
 
 local repeating_ipc_calls = {

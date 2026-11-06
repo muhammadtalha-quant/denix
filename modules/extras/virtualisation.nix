@@ -1,5 +1,5 @@
 {
-  den.aspects.virtualisation = {
+  extras.virtualisation = {
     nixos = { pkgs, ... }: {
       virtualisation.libvirtd = {
         enable = true;
