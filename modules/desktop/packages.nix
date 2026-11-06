@@ -8,9 +8,7 @@
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
-        pipes
         wl-clipboard
-        cmatrix
         google-chrome
         nautilus
         papers
@@ -22,7 +20,6 @@
         eza
         bat
         video-downloader
-        zellij
         claude-code
         _9router
       ];
