@@ -27,9 +27,5 @@
         flake-parts.follows = "flake-parts";
       };
     };
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

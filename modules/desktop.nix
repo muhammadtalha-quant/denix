@@ -1,5 +1,5 @@
 { extras, desktop, ... }: {
-  den.aspects.hyprland-desktop = { user, ... }: {
+  den.aspects.hyprland-desktop = {
     includes = [
       desktop.hyprland
       desktop.xdg
@@ -11,7 +11,6 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      desktop.neovim
       (extras.theme-catppuccin "dark")
     ];
   };
