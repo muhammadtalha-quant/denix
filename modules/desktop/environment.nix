@@ -1,8 +1,8 @@
 {
   desktop.environment = {
     nixos.environment.sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "vim";
+      VISUAL = "zeditor";
       QT_QPA_PLATFORM = "wayland;xcb";
       NIXOS_OZONE_WL = "1";
       GDK_BACKEND = "wayland,x11,*";
