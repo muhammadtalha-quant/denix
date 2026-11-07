@@ -1,5 +1,5 @@
 { disko, ... }: {
-  den.aspects.hp-probook-430g2 = { host, ... }: {
+  den.aspects.hp-probook-430g2 = {
     includes = [
       disko.ext4-simple
     ];
