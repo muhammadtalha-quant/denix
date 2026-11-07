@@ -64,7 +64,7 @@
             enable = true;
             openFirewall = true;
           };
-          envfs = lib.mkIf host.withFHSCompat true;
+          envfs.enable = lib.mkIf host.withFHSCompat true;
         };
         programs.nix-ld.enable = lib.mkIf host.withFHSCompat true;
         hardware = {
