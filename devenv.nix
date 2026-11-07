@@ -1,8 +1,5 @@
 {
   pkgs,
-  #lib,
-  #config,
-  #inputs,
   ...
 }:
 
@@ -18,9 +15,5 @@
     enable = true;
     lsp.package = pkgs.nil;
   };
-  scripts = {
-    registerOnly.exec = "nh os boot";
-    activateOnly.exec = "nh os test";
-    registerAndActivate.exec = "nh os switch";
-  };
+  scripts.zed.exec = "zeditor .";
 }
