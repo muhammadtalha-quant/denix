@@ -10,7 +10,6 @@
       programs = {
         ripgrep.enable = true;
         obsidian.enable = true;
-
         zed-editor = {
           enable = true;
         };
@@ -139,11 +138,7 @@
             ];
           };
         };
-
-        devenv = {
-          enable = true;
-          enableFishIntegration = true;
-        };
+        devenv.enable = true;
         direnv = {
           enable = true;
           enableFishIntegration = true;
