@@ -91,6 +91,7 @@
               extraArgs = "--keep 3 --keep-since 5d";
             };
           };
+          vim.enable = true;
         };
         environment = {
           sessionVariables = {
@@ -102,7 +103,6 @@
             zip
             unzip
             git
-            vim
           ];
         };
         time.timeZone = host.timeZone;
