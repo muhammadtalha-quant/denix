@@ -11,7 +11,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.theme-catppuccin "dark")
+      (extras.autorice "balcony" "dark")
     ];
   };
 }
