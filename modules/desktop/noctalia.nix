@@ -888,10 +888,7 @@
           };
         };
         theme = {
-          builtin = "Noctalia";
-          community_palette = "Oxocarbon";
           custom_palette = "stylix";
-          mode = "dark";
           pure_black_dark = false;
           shell_mode = "follow";
           source = "custom";
