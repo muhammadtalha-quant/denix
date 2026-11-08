@@ -5,15 +5,11 @@
 
 {
   packages = with pkgs; [
-    statix
+    nil
     nixfmt
-    markdownlint-cli2
-    marksman
+    statix
+    deadnix
   ];
 
-  languages.nix = {
-    enable = true;
-    lsp.package = pkgs.nil;
-  };
-  scripts.zed.exec = "zeditor .";
+  languages.nix.enable = true;
 }
