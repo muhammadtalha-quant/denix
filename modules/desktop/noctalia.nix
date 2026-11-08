@@ -45,7 +45,7 @@
             capsule_foreground = "on_surface";
             capsule_group = [ ];
             capsule_opacity = 0.8499999642372131;
-            capsule_padding = 10.0;
+            capsule_padding = 18.0;
             capsule_radius = 15.0;
             capsule_thickness = 0.75;
             center = [
