@@ -841,7 +841,7 @@
             show_app_icon = true;
             show_caption = true;
             show_count = true;
-            style = "compact";
+            style = "carousel";
           };
         };
         storage = {
