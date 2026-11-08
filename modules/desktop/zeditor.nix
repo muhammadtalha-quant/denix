@@ -2,7 +2,6 @@
   desktop.zeditor.homeManager = { pkgs, ... }: {
     programs.zed-editor = {
       enable = true;
-      installRemoteServer = true;
       extraPackages = with pkgs; [
         nixfmt
         nil
