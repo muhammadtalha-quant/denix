@@ -13,11 +13,15 @@ compose those aspects.
   `modules/users/muhammadtalha.nix`).
 - **Desktop Environment**: Wayland compositor Hyprland with UWSM session
   management and Noctalia desktop shell.
-- **Visual Theming**: Managed by Stylix via `extras.theme-catppuccin` supporting
-  Catppuccin Macchiato (dark) and Catppuccin Latte (light).
-- **Core Editors**: Zed editor (`zed-editor` in Home Manager, `zeditor`
-  executable) and `vim` (`EDITOR = "vim"`, `VISUAL = "zeditor"`). Note:
-  Neovim, LazyVim, and Zellij are discontinued.
+- **Visual Theming**: Managed by Stylix via `extras.autorice` (in
+  `modules/extras/autorice.nix`), generating a complete base16 system theme
+  dynamically from a selectable wallpaper (`balcony`, `samurai`, `redcity`,
+  `painting`, `gruvbox`, `valley`, `deer`, `horses`, `war`, `cliff`, `sakura`)
+  and polarity (`dark` / `light`).
+- **Core Editors**: Zed editor (`zed-editor` configured in
+  `modules/desktop/zeditor.nix`, `zeditor` executable) and `vim` (`EDITOR =
+  "vim"`, `VISUAL = "zeditor"`). Note: Neovim, LazyVim, and Zellij are
+  discontinued.
 
 ---
 
@@ -42,9 +46,10 @@ compose those aspects.
     `inputs.den.namespace "<name>" false`.
   - Configured namespaces:
     - `desktop`: modular desktop aspects (`environment`, `essentials`, `fish`,
-      `hyprland`, `kitty`, `noctalia`, `packages`, `services`, `vcs`, `xdg`).
-    - `extras`: optional system capabilities such as `theming`
-      (`extras.theme-catppuccin`) and `virtualisation` (`extras.virtualisation`).
+      `hyprland`, `kitty`, `noctalia`, `packages`, `services`, `vcs`, `xdg`,
+      `zeditor`).
+    - `extras`: optional system capabilities such as `autorice`
+      (`extras.autorice`) and `virtualisation` (`extras.virtualisation`).
     - `disko`: declarative storage partitioning (`disko.ext4-simple`).
   - Core aspects outside these namespaces live under `den.aspects.<name>`
     (`nixos-core`, `hyprland-desktop`, host aspects, user aspects).
@@ -76,7 +81,7 @@ compose those aspects.
 - **Aggregator Aspect**:
   - `den.aspects.hyprland-desktop` in `modules/desktop.nix` aggregates
     individual modular aspects from the `desktop.*` namespace and applies the
-    Catppuccin theme (`extras.theme-catppuccin "dark"`).
+    dynamic wallpaper-driven theme via `(extras.autorice "balcony" "dark")`.
 - **Subsystems in `modules/desktop/`**:
   - `hyprland.nix`: Configures NixOS `programs.hyprland` (with UWSM and
     XWayland) and Home Manager `wayland.windowManager.hyprland.extraLuaFiles`.
@@ -89,10 +94,14 @@ compose those aspects.
   - `kitty.nix`: Terminal emulator configuration with fish integration and
     Nautilus terminal launcher.
   - `fish.nix`: Shell abbreviations, functions (`clh`), plugins (`autopair`),
-    and `nh` operational aliases.
-  - `essentials.nix`: Everyday tools: `ripgrep`, `obsidian`, `zed-editor`,
-    `starship`, `fastfetch` (pure Nix schema), `devenv`, `cava`, `btop`,
-    `television`, `nix-search-tv`, `localsend`, `gpu-screen-recorder`.
+    and aliases (`repl`, `devenvit`, `nixos-switch`, `nixos-boot`, etc.).
+  - `essentials.nix`: Everyday tools: `ripgrep`, `obsidian`, `starship`,
+    `fastfetch` (pure Nix schema), `direnv`, `cava`, `btop`, `television`,
+    `nix-search-tv`, `localsend`, `gpu-screen-recorder`.
+  - `zeditor.nix`: Configures `programs.zed-editor` in Home Manager with remote
+    server support and integrated development tooling (`nil`, `nixfmt`,
+    `statix`, `deadnix`, `vscode-json-languageserver`,
+    `package-version-server`).
   - `vcs.nix`: Git, Lazygit, Seahorse, and GPG agent setup. Commits and tags
     are signed by default using `user.publicGPGKey`.
   - `services.nix`: System services (Ly display manager, Pipewire, Syncthing,
@@ -103,6 +112,15 @@ compose those aspects.
     `VISUAL = "zeditor"`, Wayland/Qt flags).
   - `packages.nix`: Desktop fonts (`newcomputermodern`) and user packages
     (`wl-clipboard`, `google-chrome`, `nautilus`, `claude-code`, etc.).
+- **Subsystems in `modules/extras/`**:
+  - `autorice.nix`: Dynamic wallpaper ricing aspect (`extras.autorice`). Accepts
+    `wallpaper` (e.g. `"balcony"`, `"samurai"`, `"redcity"`, `"painting"`,
+    `"gruvbox"`, `"valley"`, `"deer"`, `"horses"`, `"war"`, `"cliff"`,
+    `"sakura"`) and `polarity` (`"dark"` or `"light"`). It validates the
+    wallpaper choice, fetches the asset, and configures Stylix base16 palette
+    generation, typography, Papirus icons, and Bibata Modern Amber cursor.
+  - `virtualisation.nix`: Virtualisation aspect (`extras.virtualisation`)
+    enabling `virtualisation.libvirtd` and QEMU/KVM.
 
 ---
 
@@ -149,16 +167,19 @@ compose those aspects.
 
 ## Commands & Development Workflow
 
-- **Development Shell**:
-  - Run `devenv shell` to enter the development environment.
-  - Tools available: `nixfmt`, `statix`, `markdownlint-cli2`, `marksman`,
-    `nil` (Nix LSP).
-  - Script available: `zed` (launches `zeditor .`).
+- **Development Environment & Tooling**:
+  - Nix LSP (`nil`), formatters (`nixfmt`), and linters (`statix`, `deadnix`)
+    are provided directly through the Zed editor environment in
+    `modules/desktop/zeditor.nix`.
+  - Direnv is integrated with fish to automate environment switching; the
+    `devenvit` alias (`devenv init --include-envrc`) initializes per-project
+    environments.
 - **Formatting & Linting**:
-  - Format a file: `nixfmt path/to/file.nix`
-  - Check formatting: `nixfmt --check path/to/file.nix`
-  - Lint Nix code: `statix check`
-  - Markdown linting: `markdownlint-cli2 "**/*.md"`
+  - Format a file: `nix run nixpkgs#nixfmt -- path/to/file.nix`
+  - Check formatting: `nix run nixpkgs#nixfmt -- --check path/to/file.nix`
+  - Lint Nix code: `nix run nixpkgs#statix -- check`
+  - Markdown linting:
+    `nix shell nixpkgs#markdownlint-cli2 -c markdownlint-cli2 "**/*.md"`
 - **Flake Validation**:
   - `nix flake check` is the standard validation command.
   - To simulate CI locally, replicate `.github/workflows/test.yml` by creating
@@ -177,7 +198,7 @@ compose those aspects.
     - `nixos-boot`: `nh os boot` (set configuration for next boot)
     - `nixos-test`: `nh os test` (test configuration without boot entry)
     - `nixos-update`: `nix flake update --flake $FLAKE_PATH`
-    - `nixos-repl`: starts nix repl with `<nixpkgs>` and `lib` pre-loaded
+    - `repl`: starts nix repl with `<nixpkgs>` and `lib` pre-loaded
     - `nixos-purge`: cleans old profiles and optimizes store
 
 ---
