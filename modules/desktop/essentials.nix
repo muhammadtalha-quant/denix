@@ -10,9 +10,6 @@
       programs = {
         ripgrep.enable = true;
         obsidian.enable = true;
-        zed-editor = {
-          enable = true;
-        };
         starship = {
           enable = true;
           enableFishIntegration = true;

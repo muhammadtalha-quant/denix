@@ -4,6 +4,7 @@
       desktop.hyprland
       desktop.xdg
       desktop.kitty
+      desktop.zeditor
       desktop.noctalia
       desktop.environment
       desktop.essentials
