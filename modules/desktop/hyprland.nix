@@ -46,7 +46,7 @@
         };
         "hyprland.__keybinds__" = {
           content = ./_dotfiles/hyprland/__keybinds__.lua;
-          autoLoad = false;
+          autoLoad = true;
         };
         "hyprland.keybinds.applications" = {
           content = ./_dotfiles/hyprland/keybinds/applications.lua;
