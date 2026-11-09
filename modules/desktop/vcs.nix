@@ -9,7 +9,10 @@
     homeManager = { pkgs, ... }: {
       home.packages = [ pkgs.gh ];
       programs = {
-        lazygit.enable = true;
+        lazygit = {
+          enable = true;
+          enableFishIntegration = true;
+        };
         git = {
           enable = true;
           signing = {

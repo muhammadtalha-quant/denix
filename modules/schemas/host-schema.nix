@@ -13,6 +13,18 @@
         type = lib.types.str;
         default = "/etc/nixos";
       };
+      withLocalSSH = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+      withTailscaleSSH = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+      withFHSCompat = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
       firewallAllowedTCPPorts = lib.mkOption {
         type = lib.types.listOf lib.types.port;
         default = null;

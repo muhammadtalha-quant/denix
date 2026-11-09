@@ -4,6 +4,7 @@
       stateVersion = "26.05";
       timeZone = "Asia/Karachi";
       flakePath = "/home/muhammadtalha/denix";
+      withLocalSSH = true;
       firewallAllowedTCPPorts = [
         53317
         22

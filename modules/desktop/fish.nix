@@ -47,8 +47,9 @@
           "..." = "cd ../..";
           "...." = "cd ../../..";
           ns = "tv nix-search-tv";
+          devenvit = "devenv init --include-envrc";
           cat = "bat";
-          nixos-repl = "nix repl --expr 'let pkgs = import <nixpkgs> {}; in { inherit pkgs; inherit (pkgs) lib; }'";
+          repl = "nix repl --expr 'let pkgs = import <nixpkgs> {}; in { inherit pkgs; inherit (pkgs) lib; }'";
           nixos-switch = "nh os switch";
           nixos-boot = "nh os boot";
           nixos-purge = "nh clean all --optimise; sudo rm -frv /nix/var/nix/profiles/{system-*,per-user/*}; sudo mkdir -p /nix/var/nix/profiles/per-user/{root/channels,${user.userName}}";

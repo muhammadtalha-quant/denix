@@ -4,6 +4,7 @@
       desktop.hyprland
       desktop.xdg
       desktop.kitty
+      desktop.zeditor
       desktop.noctalia
       desktop.environment
       desktop.essentials
@@ -11,7 +12,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.theme-catppuccin "dark")
+      (extras.theme "gruvbox-dark-medium")
     ];
   };
 }

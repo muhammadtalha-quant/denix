@@ -9,69 +9,63 @@
       enable = true;
       extraLuaFiles = {
         "hyprland.events" = {
-          content = ./_dotfiles/hypr/events.lua;
+          content = ./_dotfiles/hyprland/events.lua;
           autoLoad = true;
         };
         "hyprland.config" = {
-          content = ./_dotfiles/hypr/config.lua;
+          content = ./_dotfiles/hyprland/config.lua;
           autoLoad = true;
         };
         "hyprland.rules" = {
-          content = ./_dotfiles/hypr/rules.lua;
+          content = ./_dotfiles/hyprland/rules.lua;
           autoLoad = true;
         };
         "hyprland.curves" = {
-          content = ./_dotfiles/hypr/curves.lua;
+          content = ./_dotfiles/hyprland/curves.lua;
           autoLoad = true;
         };
         "hyprland.animations" = {
-          content = ./_dotfiles/hypr/animations.lua;
+          content = ./_dotfiles/hyprland/animations.lua;
           autoLoad = true;
         };
         "hyprland.monitors" = {
-          content = ./_dotfiles/hypr/monitors.lua;
+          content = ./_dotfiles/hyprland/monitors.lua;
           autoLoad = true;
         };
         "hyprland.gestures" = {
-          content = ./_dotfiles/hypr/gestures.lua;
+          content = ./_dotfiles/hyprland/gestures.lua;
           autoLoad = true;
         };
         "lib.keys" = {
-          content = ./_dotfiles/hypr/keys.lua;
+          content = ./_dotfiles/hyprland/lib/keys.lua;
           autoLoad = false;
         };
         "lib.helpers" = {
-          content = ./_dotfiles/hypr/helpers.lua;
+          content = ./_dotfiles/hyprland/lib/helpers.lua;
           autoLoad = false;
         };
-        "hyprland.keybindings" = {
-          content = ''
-            require("hyprland.hotkeys.applications")
-            require("hyprland.hotkeys.noctalia")
-            require("hyprland.hotkeys.windows")
-            require("hyprland.hotkeys.workspaces")
-            require("hyprland.hotkeys.submaps")
-          '';
+        "hyprland.__keybinds__" = {
+          content = ./_dotfiles/hyprland/__keybinds__.lua;
           autoLoad = true;
         };
-        "hyprland.hotkeys.applications" = {
-          content = ./_dotfiles/hypr/applications.lua;
+        "hyprland.keybinds.applications" = {
+          content = ./_dotfiles/hyprland/keybinds/applications.lua;
           autoLoad = false;
         };
-        "hyprland.hotkeys.noctalia" = {
-          content = ./_dotfiles/hypr/noctalia.lua;
+        "hyprland.keybinds.noctalia_shell" = {
+          content = ./_dotfiles/hyprland/keybinds/noctalia_shell.lua;
           autoLoad = false;
         };
-        "hyprland.hotkeys.windows" = {
-          content = ./_dotfiles/hypr/windows.lua;
+        "hyprland.keybinds.windows" = {
+          content = ./_dotfiles/hyprland/keybinds/windows.lua;
           autoLoad = false;
         };
-        "hyprland.hotkeys.workspaces" = {
-          content = ./_dotfiles/hypr/workspaces.lua;
+        "hyprland.keybinds.workspaces" = {
+          content = ./_dotfiles/hyprland/keybinds/workspaces.lua;
           autoLoad = false;
         };
-        "hyprland.hotkeys.submaps" = {
-          content = ./_dotfiles/hypr/submaps.lua;
+        "hyprland.keybinds.submaps" = {
+          content = ./_dotfiles/hyprland/keybinds/submaps.lua;
           autoLoad = false;
         };
       };
