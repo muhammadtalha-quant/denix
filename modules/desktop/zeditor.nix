@@ -50,7 +50,7 @@
           Nix = {
             language_servers = [
               "nil"
-              "!nixd"
+              "nixd"
             ];
           };
         };
