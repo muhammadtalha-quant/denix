@@ -12,7 +12,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.autorice "balcony" "dark")
+      (extras.autorice "samurai" "light")
     ];
   };
 }

@@ -96,7 +96,8 @@
           icons = {
             enable = true;
             package = pkgs.papirus-icon-theme;
-            dark = "Papirus-${lib.toSentenceCase polarity}";
+            dark = "Papirus-Dark";
+            light = "Papirus-Dark";
           };
           cursor = {
             name = "Bibata-Modern-Amber";
