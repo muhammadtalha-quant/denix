@@ -12,7 +12,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.theme "gruvbox-light-medium")
+      (extras.theme "gruvbox-dark-medium")
     ];
   };
 }
