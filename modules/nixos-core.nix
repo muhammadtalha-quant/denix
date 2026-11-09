@@ -15,6 +15,7 @@
           kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
           tmp.cleanOnBoot = lib.mkDefault true;
         };
+        users.users.root.hashedPassword = host.hashedPasswordRoot;
         i18n = {
           defaultLocale = "en_US.UTF-8";
           extraLocaleSettings = {
@@ -32,8 +33,8 @@
         networking = {
           firewall = {
             enable = true;
-            allowedTCPPorts = host.firewallAllowedTCPPorts;
-            allowedUDPPorts = host.firewallAllowedUDPPorts;
+            allowedTCPPorts = host.allowedTCPPorts;
+            allowedUDPPorts = host.allowedUDPPorts;
           };
           networkmanager.enable = true;
         };
