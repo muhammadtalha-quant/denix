@@ -13,11 +13,12 @@ compose those aspects.
   `modules/users/muhammadtalha.nix`).
 - **Desktop Environment**: Wayland compositor Hyprland with UWSM session
   management and Noctalia desktop shell.
-- **Visual Theming**: Managed by Stylix via `extras.autorice` (in
-  `modules/extras/autorice.nix`), generating a complete base16 system theme
-  dynamically from a selectable wallpaper (`balcony`, `samurai`, `redcity`,
-  `painting`, `gruvbox`, `valley`, `deer`, `horses`, `war`, `cliff`, `sakura`)
-  and polarity (`dark` / `light`).
+- **Visual Theming**: Managed by Stylix via `extras.theme` (in
+  `modules/extras/theme.nix`), providing four curated aesthetic themes:
+  `gruvbox-dark-medium` (current default in `modules/desktop.nix`),
+  `gruvbox-light-medium`, `catppuccin-macchiato`, and `catppuccin-latte`.
+  Each theme configures a matching base16 scheme, release wallpaper, polarity,
+  fonts, Papirus icon color variant, and Bibata Modern Ice cursor.
 - **Core Editors**: Zed editor (`zed-editor` configured in
   `modules/desktop/zeditor.nix`, `zeditor` executable) and `vim` (`EDITOR =
   "vim"`, `VISUAL = "zeditor"`). Note: Neovim, LazyVim, and Zellij are
@@ -48,8 +49,8 @@ compose those aspects.
     - `desktop`: modular desktop aspects (`environment`, `essentials`, `fish`,
       `hyprland`, `kitty`, `noctalia`, `packages`, `services`, `vcs`, `xdg`,
       `zeditor`).
-    - `extras`: optional system capabilities such as `autorice`
-      (`extras.autorice`) and `virtualisation` (`extras.virtualisation`).
+    - `extras`: optional system capabilities such as `theme` (`extras.theme`)
+      and `virtualisation` (`extras.virtualisation`).
     - `disko`: declarative storage partitioning (`disko.ext4-simple`).
   - Core aspects outside these namespaces live under `den.aspects.<name>`
     (`nixos-core`, `hyprland-desktop`, host aspects, user aspects).
@@ -81,13 +82,22 @@ compose those aspects.
 - **Aggregator Aspect**:
   - `den.aspects.hyprland-desktop` in `modules/desktop.nix` aggregates
     individual modular aspects from the `desktop.*` namespace and applies the
-    dynamic wallpaper-driven theme via `(extras.autorice "balcony" "dark")`.
+    curated theme via `(extras.theme "gruvbox-dark-medium")`.
 - **Subsystems in `modules/desktop/`**:
   - `hyprland.nix`: Configures NixOS `programs.hyprland` (with UWSM and
     XWayland) and Home Manager `wayland.windowManager.hyprland.extraLuaFiles`.
-    Lua configs live in `modules/desktop/_dotfiles/hypr/`. Preserve module names
-    and require dependencies (`hyprland.keybindings`, `hyprland.hotkeys.*`,
-    `lib.keys`, `lib.helpers`).
+    Lua configs live in `modules/desktop/_dotfiles/hyprland/`. Preserve module
+    names and require relationships:
+    - Core modules: `hyprland.events`, `hyprland.config`, `hyprland.rules`,
+      `hyprland.curves`, `hyprland.animations`, `hyprland.monitors`,
+      `hyprland.gestures`.
+    - Keybinding orchestrator: `hyprland.__keybinds__` (auto-loaded) requires
+      `hyprland.keybinds.applications`, `hyprland.keybinds.noctalia_shell`,
+      `hyprland.keybinds.windows`, `hyprland.keybinds.workspaces`, and
+      `hyprland.keybinds.submaps`.
+    - Helpers & keys: `lib.keys` and `lib.helpers`.
+    - Workspace configuration: Root `.luarc.json` configures the Lua language
+      server for Hyprland dotfiles.
   - `noctalia.nix`: Pure Nix configuration of Noctalia shell (NixOS service +
     Home Manager settings, bar widgets, panels, and audio visualizer). External
     TOML dotfiles are no longer used.
@@ -99,11 +109,13 @@ compose those aspects.
     `fastfetch` (pure Nix schema), `direnv`, `cava`, `btop`, `television`,
     `nix-search-tv`, `localsend`, `gpu-screen-recorder`.
   - `zeditor.nix`: Configures `programs.zed-editor` in Home Manager with remote
-    server support and integrated development tooling (`nil`, `nixfmt`,
-    `statix`, `deadnix`, `vscode-json-languageserver`,
-    `package-version-server`).
-  - `vcs.nix`: Git, Lazygit, Seahorse, and GPG agent setup. Commits and tags
-    are signed by default using `user.publicGPGKey`.
+    server support, session restoration (`restore_on_startup = "last_session"`),
+    Vim emulation mode, and development tooling (`nil`, `nixd`,
+    `lua-language-server`, `nixfmt`, `statix`, `deadnix`,
+    `vscode-json-languageserver`, `package-version-server`).
+  - `vcs.nix`: Git, Lazygit (with `enableFishIntegration = true`), Seahorse,
+    and GPG agent setup. Commits and tags are signed by default using
+    `user.publicGPGKey`.
   - `services.nix`: System services (Ly display manager, Pipewire, Syncthing,
     Udisks2, UPower, power-profiles-daemon, fprintd, libinput).
   - `xdg.nix`: Portals (Hyprland, GTK), default MIME associations, user
@@ -113,12 +125,12 @@ compose those aspects.
   - `packages.nix`: Desktop fonts (`newcomputermodern`) and user packages
     (`wl-clipboard`, `google-chrome`, `nautilus`, `claude-code`, etc.).
 - **Subsystems in `modules/extras/`**:
-  - `autorice.nix`: Dynamic wallpaper ricing aspect (`extras.autorice`). Accepts
-    `wallpaper` (e.g. `"balcony"`, `"samurai"`, `"redcity"`, `"painting"`,
-    `"gruvbox"`, `"valley"`, `"deer"`, `"horses"`, `"war"`, `"cliff"`,
-    `"sakura"`) and `polarity` (`"dark"` or `"light"`). It validates the
-    wallpaper choice, fetches the asset, and configures Stylix base16 palette
-    generation, typography, Papirus icons, and Bibata Modern Amber cursor.
+  - `theme.nix`: Curated theming aspect (`extras.theme`). Accepts `theme`
+    name (`"gruvbox-dark-medium"`, `"gruvbox-light-medium"`,
+    `"catppuccin-macchiato"`, `"catppuccin-latte"`). Fetches the matching
+    wallpaper asset from GitHub releases, applies base16 scheme, polarity,
+    fonts, Papirus icon color accents (`teal`, `yellow`,
+    `cat-macchiato-mauve`, `cat-latte-mauve`), and Bibata Modern Ice cursor.
   - `virtualisation.nix`: Virtualisation aspect (`extras.virtualisation`)
     enabling `virtualisation.libvirtd` and QEMU/KVM.
 
@@ -168,9 +180,9 @@ compose those aspects.
 ## Commands & Development Workflow
 
 - **Development Environment & Tooling**:
-  - Nix LSP (`nil`), formatters (`nixfmt`), and linters (`statix`, `deadnix`)
-    are provided directly through the Zed editor environment in
-    `modules/desktop/zeditor.nix`.
+  - Nix LSPs (`nil`, `nixd`), Lua LSP (`lua-language-server`), formatters
+    (`nixfmt`), and linters (`statix`, `deadnix`) are provided directly through
+    the Zed editor environment in `modules/desktop/zeditor.nix`.
   - Direnv is integrated with fish to automate environment switching; the
     `devenvit` alias (`devenv init --include-envrc`) initializes per-project
     environments.
