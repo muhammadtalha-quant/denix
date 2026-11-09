@@ -5,7 +5,6 @@
   extras.theme = theme: {
     nixos =
       {
-        lib,
         pkgs,
         ...
       }:
@@ -69,18 +68,34 @@
           icons = {
             enable = true;
             package =
-              if theme == "gruvbox-dark-medium" then
-                pkgs.papirus-icon-theme.override { color = "teal"; }
-              else if theme == "gruvbox-light-medium" then
-                pkgs.papirus-icon-theme.override { color = "yellow"; }
+              if (theme == "gruvbox-dark-medium" || theme == "gruvbox-light-medium") then
+                pkgs.gruvbox-plus-icons
               else if theme == "catppuccin-macchiato" then
-                pkgs.papirus-icon-theme.override { color = "cat-macchiato-mauve"; }
+                pkgs.catppuccin-papirus-folders.override {
+                  flavor = "macchiato";
+                  accent = "mauve";
+                }
               else if theme == "catppuccin-latte" then
-                pkgs.papirus-icon-theme.override { color = "cat-latte-mauve"; }
+                pkgs.catppuccin-papirus-folders.override {
+                  flavor = "latte";
+                  accent = "mauve";
+                }
               else
                 null;
-            dark = "Papirus-Dark";
-            light = "Papirus-Light";
+            dark =
+              if theme == "gruvbox-dark-medium" then
+                "Gruvbox-Plus-Dark"
+              else if theme == "catppuccin-macchiato" then
+                "Papirus-Dark"
+              else
+                null;
+            light =
+              if theme == "gruvbox-light-medium" then
+                "Gruvbox-Plus-Light"
+              else if theme == "catppuccin-latte" then
+                "Papirus-Light"
+              else
+                null;
           };
           cursor = {
             name = "Bibata-Modern-Ice";
