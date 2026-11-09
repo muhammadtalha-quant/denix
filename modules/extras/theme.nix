@@ -68,12 +68,22 @@
           };
           icons = {
             enable = true;
-            package = pkgs.papirus-icon-theme;
+            package =
+              if theme == "gruvbox-dark-medium" then
+                pkgs.papirus-icon-theme.override { color = "teal"; }
+              else if theme == "gruvbox-light-medium" then
+                pkgs.papirus-icon-theme.override { color = "yellow"; }
+              else if theme == "catppuccin-macchiato" then
+                pkgs.papirus-icon-theme.override { color = "cat-macchiato-mauve"; }
+              else if theme == "catppuccin-latte" then
+                pkgs.papirus-icon-theme.override { color = "cat-latte-mauve"; }
+              else
+                null;
             dark = "Papirus-Dark";
-            light = "Papirus-Dark";
+            light = "Papirus-Light";
           };
           cursor = {
-            name = "Bibata-Modern-Amber";
+            name = "Bibata-Modern-Ice";
             package = pkgs.bibata-cursors;
             size = 26;
           };
