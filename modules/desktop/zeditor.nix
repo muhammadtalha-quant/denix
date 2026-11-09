@@ -6,6 +6,7 @@
         nixfmt
         nil
         nixd
+        lua-language-server
         statix
         deadnix
         vscode-json-languageserver
