@@ -12,7 +12,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.autorice "samurai" "light")
+      (extras.theme "gruvbox-light-medium")
     ];
   };
 }
