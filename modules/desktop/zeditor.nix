@@ -5,6 +5,7 @@
       extraPackages = with pkgs; [
         nixfmt
         nil
+        nixd
         statix
         deadnix
         vscode-json-languageserver
