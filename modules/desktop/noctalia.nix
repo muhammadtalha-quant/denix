@@ -896,8 +896,8 @@
           templates = {
             builtin_ids = [ ];
             community_ids = [ ];
-            enable_builtin_templates = true;
-            enable_community_templates = true;
+            enable_builtin_templates = false;
+            enable_community_templates = false;
           };
           wallpaper_scheme = "m3-content";
         };
