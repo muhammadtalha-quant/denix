@@ -79,7 +79,7 @@
           git_status_indicator = true;
           hide_gitignore = true;
         };
-        restore_on_startup = "launchpad";
+        restore_on_startup = "last_session";
         search = {
           button = false;
         };
