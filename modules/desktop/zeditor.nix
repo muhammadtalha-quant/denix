@@ -7,9 +7,10 @@
         nil
         nixd
         lua-language-server
-        statix
-        deadnix
         vscode-json-languageserver
+        yaml-language-server
+        bash-language-server
+        taplo
         package-version-server
       ];
       userSettings = {
