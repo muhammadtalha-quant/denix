@@ -137,20 +137,14 @@
       userKeymaps = [
         {
           bindings = {
-            ctrl-shift-t = "terminal_panel::Toggle";
-          };
-          context = "Workspace";
-        }
-        {
-          bindings = {
             ctrl-shift-d = "debug_panel::Toggle";
             ctrl-shift-e = "project_panel::Toggle";
             ctrl-shift-g = "git_panel::Toggle";
           };
-        }
-        {
           unbind = {
             ctrl-q = "zed::Quit";
+            ctrl-shift-b = "outline_panel::Toggle";
+            ctrl-shift-w = "workspace::CloseWindow";
           };
         }
         {
@@ -160,9 +154,30 @@
           };
         }
         {
-          context = "VimControl && !menu";
+          context = "BufferSearchBar";
           unbind = {
-            "g shift-o" = "outline::Toggle";
+            ctrl-shift-enter = "editor::ToggleFoldAll";
+          };
+        }
+        {
+          context = "Editor";
+          unbind = {
+            "ctrl-k ctrl-0" = "editor::FoldAll";
+            "ctrl-k ctrl-1" = "editor::FoldAtLevel_1";
+            "ctrl-k ctrl-2" = "editor::FoldAtLevel_2";
+            "ctrl-k ctrl-3" = "editor::FoldAtLevel_3";
+            "ctrl-k ctrl-4" = "editor::FoldAtLevel_4";
+            "ctrl-k ctrl-5" = "editor::FoldAtLevel_5";
+            "ctrl-k ctrl-6" = "editor::FoldAtLevel_6";
+            "ctrl-k ctrl-7" = "editor::FoldAtLevel_7";
+            "ctrl-k ctrl-8" = "editor::FoldAtLevel_8";
+            "ctrl-k ctrl-9" = "editor::FoldAtLevel_9";
+            "ctrl-k ctrl-[" = "editor::FoldRecursive";
+            "ctrl-k ctrl-]" = "editor::UnfoldRecursive";
+            "ctrl-k ctrl-j" = "editor::UnfoldAll";
+            "ctrl-k ctrl-l" = "editor::ToggleFold";
+            "ctrl-{" = "editor::Fold";
+            "ctrl-}" = "editor::UnfoldLines";
           };
         }
         {
@@ -172,21 +187,9 @@
           };
         }
         {
-          context = "ThreadsSidebar && !Editor";
+          context = "FileFinder || FileFinder > Picker > Editor";
           unbind = {
-            "z a" = "editor::ToggleFold";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z a" = "editor::ToggleFold";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-l" = "editor::ToggleFold";
+            ctrl-p = "file_finder::Toggle";
           };
         }
         {
@@ -196,200 +199,24 @@
           };
         }
         {
-          context = "Editor";
-          unbind = {
-            "ctrl-{" = "editor::Fold";
-          };
-        }
-        {
-          context = "ThreadsSidebar && !Editor";
-          unbind = {
-            "z shift-m" = "editor::FoldAll";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z shift-m" = "editor::FoldAll";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-0" = "editor::FoldAll";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-[" = "editor::FoldRecursive";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-9" = "editor::FoldAtLevel_9";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-8" = "editor::FoldAtLevel_8";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-7" = "editor::FoldAtLevel_7";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-6" = "editor::FoldAtLevel_6";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-5" = "editor::FoldAtLevel_5";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-4" = "editor::FoldAtLevel_4";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-3" = "editor::FoldAtLevel_3";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-2" = "editor::FoldAtLevel_2";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-1" = "editor::FoldAtLevel_1";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-]" = "editor::UnfoldRecursive";
-          };
-        }
-        {
-          context = "BufferSearchBar";
-          unbind = {
-            ctrl-shift-enter = "editor::ToggleFoldAll";
-          };
-        }
-        {
-          context = "ThreadsSidebar && !Editor";
-          unbind = {
-            "z shift-r" = "editor::UnfoldAll";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z shift-r" = "editor::UnfoldAll";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-k ctrl-j" = "editor::UnfoldAll";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z f" = "editor::FoldSelectedRanges";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z shift-a" = "editor::ToggleFoldRecursive";
-          };
-        }
-        {
-          context = "Editor";
-          unbind = {
-            "ctrl-}" = "editor::UnfoldLines";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z shift-o" = "editor::UnfoldRecursive";
-          };
-        }
-        {
-          context = "VimControl && !menu";
-          unbind = {
-            "z shift-c" = "editor::FoldRecursive";
-          };
-        }
-        {
-          context = "Workspace";
-          unbind = {
-            "alt-/" = "which_key::ShowPendingBindings";
-          };
-        }
-        {
           context = "ProjectPanel";
           unbind = {
+            alt-new = "project_panel::NewDirectory";
+            ctrl-alt-n = "project_panel::NewDirectory";
             ctrl-alt-shift-f = "project_panel::NewSearchInDirectory";
-          };
-        }
-        {
-          context = "ProjectPanel";
-          unbind = {
+            ctrl-n = "project_panel::NewFile";
+            new = "project_panel::NewFile";
             shift-find = "project_panel::NewSearchInDirectory";
           };
         }
         {
-          context = "ProjectPanel";
-          unbind = {
-            alt-new = "project_panel::NewDirectory";
+          bindings = {
+            n = "project_panel::NewFile";
           };
-        }
-        {
-          context = "ProjectPanel";
-          unbind = {
-            ctrl-alt-n = "project_panel::NewDirectory";
-          };
-        }
-        {
-          context = "ProjectPanel";
-          unbind = {
-            new = "project_panel::NewFile";
-          };
-        }
-        {
-          context = "ProjectPanel";
-          unbind = {
-            ctrl-n = "project_panel::NewFile";
-          };
-        }
-        {
           context = "ProjectPanel && not_editing";
           unbind = {
+            "%" = "project_panel::NewFile";
             "/" = "project_panel::NewSearchInDirectory";
-          };
-        }
-        {
-          context = "ProjectPanel && not_editing";
-          unbind = {
             d = "project_panel::NewDirectory";
           };
         }
@@ -400,27 +227,35 @@
           };
         }
         {
-          bindings = {
-            n = "project_panel::NewFile";
-          };
-          context = "ProjectPanel && not_editing";
-        }
-        {
-          context = "ProjectPanel && not_editing";
+          context = "ThreadsSidebar && !Editor";
           unbind = {
-            "%" = "project_panel::NewFile";
+            "z a" = "editor::ToggleFold";
+            "z shift-m" = "editor::FoldAll";
+            "z shift-r" = "editor::UnfoldAll";
+          };
+        }
+        {
+          context = "VimControl && !menu";
+          unbind = {
+            "g shift-o" = "outline::Toggle";
+            "z a" = "editor::ToggleFold";
+            "z f" = "editor::FoldSelectedRanges";
+            "z shift-a" = "editor::ToggleFoldRecursive";
+            "z shift-c" = "editor::FoldRecursive";
+            "z shift-m" = "editor::FoldAll";
+            "z shift-o" = "editor::UnfoldRecursive";
+            "z shift-r" = "editor::UnfoldAll";
           };
         }
         {
           bindings = {
-            "ctrl-alt-=" = [
-              "workspace::IncreaseActiveDockSize"
-              {
-                px = 25;
-              }
-            ];
+            ctrl-shift-t = "terminal_panel::Toggle";
           };
-          context = "Workspace || Terminal";
+          context = "Workspace";
+          unbind = {
+            "alt-/" = "which_key::ShowPendingBindings";
+            ctrl-shift-b = "outline_panel::ToggleFocus";
+          };
         }
         {
           bindings = {
@@ -430,25 +265,14 @@
                 px = 25;
               }
             ];
+            "ctrl-alt-=" = [
+              "workspace::IncreaseActiveDockSize"
+              {
+                px = 25;
+              }
+            ];
           };
           context = "Workspace || Terminal";
-        }
-        {
-          context = "FileFinder || FileFinder > Picker > Editor";
-          unbind = {
-            ctrl-p = "file_finder::Toggle";
-          };
-        }
-        {
-          context = "FileFinder || FileFinder > Picker > Editor";
-          unbind = {
-            ctrl-p = "file_finder::Toggle";
-          };
-        }
-        {
-          unbind = {
-            ctrl-shift-w = "workspace::CloseWindow";
-          };
         }
       ];
     };
