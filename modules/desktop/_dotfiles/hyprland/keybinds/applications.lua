@@ -17,6 +17,11 @@ local apps = {
     cmd = "nautilus",
     desc = "Open File Manager"
   },
+  [helpers.register(KEYS.MODIFIER.SUPER, KEYS.ALPHABET.C)]            =
+  {
+    cmd = "zeditor",
+    desc = "Open Zed Code Editor"
+  },
   [helpers.register(KEYS.MODIFIER.SUPER, KEYS.PUNCTUATION.SEMICOLON)] =
   {
     cmd = "localsend_app",
