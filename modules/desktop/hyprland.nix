@@ -64,8 +64,6 @@
           content = ./_dotfiles/hyprland/keybinds/workspaces.lua;
           autoLoad = false;
         };
-        "hyprland.keybinds.submaps" = {
-          content = ./_dotfiles/hyprland/keybinds/submaps.lua;
           autoLoad = false;
         };
       };
