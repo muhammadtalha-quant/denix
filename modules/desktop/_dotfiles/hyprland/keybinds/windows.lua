@@ -23,8 +23,6 @@ hl.bind(
         })
         hl.dispatch(hl.dsp.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
             "'Applied Layout: " .. layout_name .. "'"))
-        hl.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
-            "'Applied Layout: " .. layout_name .. "'")
     end
 )
 
@@ -186,9 +184,31 @@ hl.bind(
         KEYS.ARROW.LEFT
     ),
     function()
-
+        local current = hl.get_config("general.layout")
+        if current == "master" then
+            hl.dispatch(hl.dsp.layout("swapnext"))
+        else
+        end
     end,
     {
-        description = "Swap "
+        description = "Swap Focused Window With The Window To The Left"
+    }
+)
+
+hl.bind(
+    helpers.register(
+        KEYS.MODIFIER.SUPER,
+        KEYS.MODIFIER.SHIFT,
+        KEYS.ARROW.RIGHT
+    ),
+    function()
+        local current = hl.get_config("general.layout")
+        if current == "master" then
+            hl.dispatch(hl.dsp.layout("swapprev"))
+        else
+        end
+    end,
+    {
+        description = "Swap Focused Window With The Window To The Right"
     }
 )
