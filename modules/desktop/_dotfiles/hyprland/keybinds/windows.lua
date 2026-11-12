@@ -176,6 +176,15 @@ hl.bind(
 
 
 hl.bind(
-)
+    helpers.register(
+        KEYS.MODIFIER.SUPER,
+        KEYS.MODIFIER.SHIFT,
+        KEYS.ARROW.LEFT
+    ),
+    function()
 
+    end,
+    {
+        description = "Swap "
+    }
 )
