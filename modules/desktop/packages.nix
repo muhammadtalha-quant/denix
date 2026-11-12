@@ -4,7 +4,9 @@
       fonts.packages = with pkgs; [
         newcomputermodern
       ];
-      environment.systemPackages = [ ];
+      environment.systemPackages = [
+        pkgs.libnotify
+      ];
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
