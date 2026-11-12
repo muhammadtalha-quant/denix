@@ -21,7 +21,8 @@ hl.bind(
                 layout = layout_name,
             }
         })
-        hl.exec_cmd("notify-send -u normal -t 3600 -a hyprland " .. "'Current Layout: " .. layout_name .. "'")
+        hl.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
+            "'Applied Layout: " .. layout_name .. "'")
     end
 )
 
