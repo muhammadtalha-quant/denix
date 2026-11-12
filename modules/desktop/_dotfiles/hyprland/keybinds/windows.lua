@@ -3,6 +3,26 @@ local helpers = require("lib.helpers")
 
 
 hl.bind(
+    helpers.register(
+        KEYS.MODIFIER.SUPER,
+        KEYS.MODIFIER.ALT,
+        KEYS.ALPHABET.L
+    ),
+    function()
+        local current_layout = hl.get_config("general.layout")
+        local layout_name = ""
+        if current_layout == "master" then
+            layout_name = "scrolling"
+        else
+            layout_name = "master"
+        end
+        hl.config({
+            general = {
+                layout = layout_name,
+            }
+        })
+        hl.exec_cmd("notify-send -u normal -t 3600 -a hyprland " .. "'Current Layout: " .. layout_name .. "'")
+    end
 )
 
 hl.bind(
