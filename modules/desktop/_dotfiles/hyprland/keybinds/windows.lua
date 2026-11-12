@@ -21,6 +21,8 @@ hl.bind(
                 layout = layout_name,
             }
         })
+        hl.dispatch(hl.dsp.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
+            "'Applied Layout: " .. layout_name .. "'"))
         hl.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
             "'Applied Layout: " .. layout_name .. "'")
     end
@@ -36,6 +38,7 @@ hl.bind(
         description = "Gracefully Close Window"
     }
 )
+
 
 hl.bind(
     helpers.register(
