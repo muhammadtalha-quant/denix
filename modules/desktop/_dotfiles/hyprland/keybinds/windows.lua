@@ -1,15 +1,6 @@
 local KEYS = require("lib.keys")
 local helpers = require("lib.helpers")
 
-hl.bind(helpers.register(
-    KEYS.MODIFIER.ALT,
-    KEYS.ALPHABET.R
-  ),
-  hl.dsp.submap("resize"),
-  {
-    description = "Resize Windows/Tiles",
-  }
-)
 
 hl.bind(
   helpers.register(
