@@ -148,6 +148,11 @@
           };
         }
         {
+          bindings = {
+            ctrl-alt-b = null;
+          };
+        }
+        {
           context = "(vim_mode == helix_normal || vim_mode == helix_select) && !menu";
           unbind = {
             "space s" = "outline::Toggle";
