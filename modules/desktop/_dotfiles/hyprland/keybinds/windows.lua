@@ -152,57 +152,11 @@ hl.bind(
 )
 
 hl.bind(
-  helpers.register(
-    KEYS.MODIFIER.SUPER,
-    KEYS.MODIFIER.SHIFT,
-    KEYS.ARROW.LEFT
-  ),
-  hl.dsp.window.swap({
-    direction = "left"
-  }),
-  {
-    description = "Swap Focused Window with Window to Left"
-  }
+)
+
+
+hl.bind(
 )
 
 hl.bind(
-  helpers.register(
-    KEYS.MODIFIER.SUPER,
-    KEYS.MODIFIER.SHIFT,
-    KEYS.ARROW.RIGHT
-  ),
-  hl.dsp.window.swap({
-    direction = "right"
-  }),
-  {
-    description = "Swap Focused Window with Window to Right"
-  }
-)
-
-hl.bind(
-  helpers.register(
-    KEYS.MODIFIER.SUPER,
-    KEYS.MODIFIER.SHIFT,
-    KEYS.ARROW.UP
-  ),
-  hl.dsp.window.swap({
-    direction = "up"
-  }),
-  {
-    description = "Swap Focused Window with Window Above"
-  }
-)
-
-hl.bind(
-  helpers.register(
-    KEYS.MODIFIER.SUPER,
-    KEYS.MODIFIER.SHIFT,
-    KEYS.ARROW.DOWN
-  ),
-  hl.dsp.window.swap({
-    direction = "down"
-  }),
-  {
-    description = "Swap Focused Window with Window Below"
-  }
 )
