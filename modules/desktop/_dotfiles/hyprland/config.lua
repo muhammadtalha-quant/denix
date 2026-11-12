@@ -28,6 +28,7 @@ hl.config({
     gaps_in = 4,
     gaps_out = 8,
     gaps_workspaces = 50,
+        layout = "master",
 
     border_size = 1,
 
