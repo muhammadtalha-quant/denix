@@ -1,5 +1,5 @@
 { extras, desktop, ... }: {
-  den.aspects.hyprland-desktop = {
+  den.aspects.mangowm-desktop = {
     includes = [
       desktop.mangowm
       desktop.xdg
