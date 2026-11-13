@@ -832,15 +832,6 @@
           umbriel_audio_provider_enabled = false;
           umbriel_overview_close_on_launch_enabled = false;
           umbriel_overview_type_to_launch_enabled = false;
-          window_switcher = {
-            current_workspace_only = false;
-            mru = false;
-            show_all_outputs = true;
-            show_app_icon = true;
-            show_caption = true;
-            show_count = true;
-            style = "carousel";
-          };
         };
         storage = {
           key_file = "";
