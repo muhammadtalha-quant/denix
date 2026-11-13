@@ -1,31 +1,6 @@
 local KEYS = require("lib.keys")
 local helpers = require("lib.helpers")
 
-
-hl.bind(
-    helpers.register(
-        KEYS.MODIFIER.SUPER,
-        KEYS.MODIFIER.ALT,
-        KEYS.ALPHABET.L
-    ),
-    function()
-        local current_layout = hl.get_config("general.layout")
-        local layout_name = ""
-        if current_layout == "master" then
-            layout_name = "scrolling"
-        else
-            layout_name = "master"
-        end
-        hl.config({
-            general = {
-                layout = layout_name,
-            }
-        })
-        hl.dispatch(hl.dsp.exec_cmd("notify-send -u normal -t 2000 -a hyprland -i dialog-ok " ..
-            "'Applied Layout: " .. layout_name .. "'"))
-    end
-)
-
 hl.bind(
     helpers.register(
         KEYS.MODIFIER.SUPER,
@@ -36,7 +11,6 @@ hl.bind(
         description = "Gracefully Close Window"
     }
 )
-
 
 hl.bind(
     helpers.register(
@@ -176,22 +150,17 @@ hl.bind(
     }
 )
 
-
 hl.bind(
     helpers.register(
         KEYS.MODIFIER.SUPER,
         KEYS.MODIFIER.SHIFT,
         KEYS.ARROW.LEFT
     ),
-    function()
-        local current = hl.get_config("general.layout")
-        if current == "master" then
-            hl.dispatch(hl.dsp.layout("swapnext"))
-        else
-        end
-    end,
+    hl.dsp.window.swap({
+        direction = "left"
+    }),
     {
-        description = "Swap Focused Window With The Window To The Left"
+        description = "Swap Focused Window with Window to Left"
     }
 )
 
@@ -201,14 +170,38 @@ hl.bind(
         KEYS.MODIFIER.SHIFT,
         KEYS.ARROW.RIGHT
     ),
-    function()
-        local current = hl.get_config("general.layout")
-        if current == "master" then
-            hl.dispatch(hl.dsp.layout("swapprev"))
-        else
-        end
-    end,
+    hl.dsp.window.swap({
+        direction = "right"
+    }),
     {
-        description = "Swap Focused Window With The Window To The Right"
+        description = "Swap Focused Window with Window to Right"
+    }
+)
+
+hl.bind(
+    helpers.register(
+        KEYS.MODIFIER.SUPER,
+        KEYS.MODIFIER.SHIFT,
+        KEYS.ARROW.UP
+    ),
+    hl.dsp.window.swap({
+        direction = "up"
+    }),
+    {
+        description = "Swap Focused Window with Window Above"
+    }
+)
+
+hl.bind(
+    helpers.register(
+        KEYS.MODIFIER.SUPER,
+        KEYS.MODIFIER.SHIFT,
+        KEYS.ARROW.DOWN
+    ),
+    hl.dsp.window.swap({
+        direction = "down"
+    }),
+    {
+        description = "Swap Focused Window with Window Below"
     }
 )
