@@ -585,7 +585,6 @@
           auto_update = "all";
           enabled = [
             "noctalia/screen_recorder"
-            "noctalia/kaomoji"
           ];
           source = [
             {
