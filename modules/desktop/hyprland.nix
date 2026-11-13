@@ -48,10 +48,6 @@
           content = ./_dotfiles/hyprland/__keybinds__.lua;
           autoLoad = true;
         };
-        "hyprland.__layouts__" = {
-          content = ./_dotfiles/hyprland/__layouts__.lua;
-          autoLoad = true;
-        };
         "hyprland.keybinds.applications" = {
           content = ./_dotfiles/hyprland/keybinds/applications.lua;
           autoLoad = false;
@@ -66,14 +62,6 @@
         };
         "hyprland.keybinds.workspaces" = {
           content = ./_dotfiles/hyprland/keybinds/workspaces.lua;
-          autoLoad = false;
-        };
-        "hyprland.layouts.master" = {
-          content = ./_dotfiles/hyprland/layouts/master.lua;
-          autoLoad = false;
-        };
-        "hyprland.layouts.scrolling" = {
-          content = ./_dotfiles/hyprland/layouts/scrolling.lua;
           autoLoad = false;
         };
       };
