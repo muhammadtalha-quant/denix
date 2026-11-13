@@ -20,6 +20,18 @@ function M.focus_ws(workspace_id)
     )
 end
 
+function M.change_animation(layout)
+    if layout == "scrolling" then
+        hl.animation({ leaf = "workspaces", enabled = true, speed = 2.0, bezier = "quick", style = "slidevert" })
+        hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1.8, bezier = "quick", style = "slide" })
+    elseif layout == "master" then
+        hl.animation({ leaf = "workspaces", enabled = true, speed = 2.0, bezier = "quick", style = "slide" })
+        hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1.8, bezier = "quick", style = "slidevert" })
+    else
+        hl.animation({ leaf = "workspaces", enabled = false })
+    end
+end
+
 function M.move_window_to_and_focus_ws(workspace_id)
     hl.bind(
         M.register(
