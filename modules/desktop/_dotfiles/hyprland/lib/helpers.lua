@@ -15,12 +15,12 @@ function M.focus_ws(workspace_id)
             workspace = tostring(workspace_id)
         }),
         {
-            description = "Switch To Workspace # " .. tostring(workspace_id)
+            description = "Focus Workspace # " .. tostring(workspace_id)
         }
     )
 end
 
-function M.change_animation(layout)
+function M.cycle_workspace_animations_per_layout(layout)
     if layout == "scrolling" then
         hl.animation({ leaf = "workspaces", enabled = true, speed = 2.0, bezier = "quick", style = "slidevert" })
         hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1.8, bezier = "quick", style = "slide" })
