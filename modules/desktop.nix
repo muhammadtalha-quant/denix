@@ -3,7 +3,7 @@
     includes = [
       desktop.hyprland
       desktop.xdg
-      desktop.kitty
+      desktop.foot
       desktop.obsidian
       desktop.zeditor
       desktop.noctalia
