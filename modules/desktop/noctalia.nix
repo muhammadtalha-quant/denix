@@ -6,7 +6,6 @@
     };
     homeManager.programs.noctalia = {
       enable = true;
-      systemd.enable = true;
       settings = {
         accessibility = {
           high_contrast = false;

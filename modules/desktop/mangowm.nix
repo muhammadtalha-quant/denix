@@ -22,12 +22,9 @@
           "systemctl --user start mango-session.target"
           "systemctl --user start xdg-desktop-portal.service"
         ];
-        autostart_sh = ''
-          ${pkgs.noctalia}/bin/noctalia &
-        '';
         extraConfig = lib.concatMapStringsSep "\n" lib.readFile [
-          ./_dotfiles/mango/binds.conf
           ./_dotfiles/mango/config.conf
+          ./_dotfiles/mango/binds.conf
           ./_dotfiles/mango/gestures.conf
           ./_dotfiles/mango/layouts.conf
           ./_dotfiles/mango/looknfeel.conf
