@@ -1,7 +1,7 @@
 { extras, desktop, ... }: {
   den.aspects.hyprland-desktop = {
     includes = [
-      desktop.hyprland
+      desktop.mangowm
       desktop.xdg
       desktop.foot
       desktop.obsidian
