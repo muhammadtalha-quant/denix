@@ -24,9 +24,6 @@
         collaboration_panel = {
           button = false;
         };
-        cursor_animation = {
-          enabled = true;
-        };
         debugger = {
           button = false;
         };
