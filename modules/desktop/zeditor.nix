@@ -2,11 +2,11 @@
   desktop.zeditor.homeManager = { pkgs, ... }: {
     programs.zed-editor = {
       enable = true;
+      package = pkgs.zed-editor-fhs;
       extraPackages = with pkgs; [
         nixfmt
         nil
         nixd
-        lua-language-server
         vscode-json-languageserver
         yaml-language-server
         bash-language-server
