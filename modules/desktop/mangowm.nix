@@ -16,8 +16,7 @@
       wayland.windowManager.mango = {
         enable = true;
         package = pkgs.mango;
-        systemd.enable = true; # create a mango-session.target and link it to graphical-session.target
-
+        systemd.enable = true;
       };
     };
   };

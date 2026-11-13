@@ -9,7 +9,7 @@
         enable = true;
         server = {
           enable = true;
-          systemdTarget = "hyprland-session.target";
+          systemdTarget = "mango-session.target";
         };
         settings = {
           bell = {

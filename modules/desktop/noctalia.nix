@@ -5,7 +5,7 @@
       recommendedServices.enable = true;
       systemd = {
         enable = true;
-        target = "hyprland-session.target";
+        target = "mango-session.target";
       };
     };
     homeManager.programs.noctalia = {
