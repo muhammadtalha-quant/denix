@@ -892,9 +892,9 @@
           source = "custom";
           sync_color_scheme = true;
           templates = {
-            builtin_ids = [ ];
+            builtin_ids = [ "mango" ];
             community_ids = [ ];
-            enable_builtin_templates = false;
+            enable_builtin_templates = true;
             enable_community_templates = false;
           };
           wallpaper_scheme = "m3-content";
