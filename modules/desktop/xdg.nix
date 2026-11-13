@@ -1,27 +1,38 @@
 {
-  desktop.xdg.homeManager = { pkgs, ... }: {
-    xdg = {
-      portal = {
+  desktop.xdg = {
+    nixos = { lib, pkgs, ... }: {
+      xdg.portal.wlr = {
         enable = true;
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-hyprland
-        ];
-        config = {
-          common = {
-            default = [
-              "hyprland"
-              "gtk"
-            ];
-            "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-            "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-          };
+        settings = {
+          chooser_style = "dmenu";
+          chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
         };
       };
-      userDirs.enable = true;
-      userDirs.createDirectories = true;
-      localBinInPath = true;
+    };
+    homeManager = { pkgs, ... }: {
+      xdg = {
+        portal = {
+          enable = true;
+          extraPortals = [
+            pkgs.xdg-desktop-portal-gtk
+            pkgs.xdg-desktop-portal-wlr
+          ];
+          config = {
+            common = {
+              default = [
+                "wlr"
+                "gtk"
+              ];
+              "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+              "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+            };
+          };
+        };
+        userDirs.enable = true;
+        userDirs.createDirectories = true;
+        localBinInPath = true;
+      };
     };
   };
 }
