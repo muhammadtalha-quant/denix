@@ -20,12 +20,8 @@
           content = ./_dotfiles/hyprland/rules.lua;
           autoLoad = true;
         };
-        "hyprland.curves" = {
-          content = ./_dotfiles/hyprland/curves.lua;
-          autoLoad = true;
-        };
-        "hyprland.animations" = {
-          content = ./_dotfiles/hyprland/animations.lua;
+        "hyprland.looknfeel" = {
+          content = ./_dotfiles/hyprland/looknfeel.lua;
           autoLoad = true;
         };
         "hyprland.monitors" = {
