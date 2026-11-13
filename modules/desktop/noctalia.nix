@@ -226,9 +226,7 @@
           session_locked = [ ];
           session_unlocked = [ ];
           shutting_down = [ ];
-          started = [
-            "hyprctl reload"
-          ];
+          started = [ ];
           theme_mode_changed = [ ];
           wallpaper_changed = [ ];
           wifi_disabled = [ ];
