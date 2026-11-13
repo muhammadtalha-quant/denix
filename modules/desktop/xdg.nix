@@ -1,11 +1,11 @@
 {
   desktop.xdg = {
-    nixos = { lib, pkgs, ... }: {
+    nixos = { pkgs, ... }: {
       xdg.portal.wlr = {
         enable = true;
         settings.screencast = {
           chooser_type = "dmenu";
-          chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
+          chooser_cmd = "${pkgs.noctalia}/bin/noctalia dmenu -p 'Share to Record'";
         };
       };
     };
@@ -20,7 +20,11 @@
           config = {
             common = {
               default = [
-                "wlr"
+                "gtk"
+              ];
+            };
+            mango = {
+              default = [
                 "gtk"
               ];
               "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];

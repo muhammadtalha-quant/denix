@@ -3,10 +3,6 @@
     nixos.programs.noctalia = {
       enable = true;
       recommendedServices.enable = true;
-      systemd = {
-        enable = true;
-        target = "mango-session.target";
-      };
     };
     homeManager.programs.noctalia = {
       enable = true;
