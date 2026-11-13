@@ -39,14 +39,14 @@
             border = "outline_variant";
             border_width = 0.0;
             capsule = true;
-            capsule_border = "on_primary";
+            capsule_border = "primary";
             capsule_border_width = 1.0;
             capsule_fill = "on_primary";
             capsule_foreground = "on_surface";
             capsule_group = [ ];
             capsule_opacity = 0.8499999642372131;
-            capsule_padding = 18.0;
-            capsule_radius = 15.0;
+            capsule_padding = 9.0;
+            capsule_radius = 8.0;
             capsule_thickness = 0.75;
             center = [
               "audio_visualizer"
@@ -333,7 +333,7 @@
         };
         lockscreen = {
           allow_empty_password = true;
-          blur_intensity = 0.8499999642372131;
+          blur_intensity = 0.35;
           blurred_desktop = true;
           edge_smoothness = 0.30000001192092896;
           enabled = true;
@@ -406,7 +406,7 @@
                 background_radius = 0.0;
                 center_password_text = true;
                 input_opacity = 0.0;
-                input_radius = 19.0;
+                input_radius = 8.0;
                 layout = "regular";
                 show_caps_lock = true;
                 show_keyboard_layout = true;
@@ -527,7 +527,7 @@
           border_width = 1.0;
           collapse_on_dismiss = true;
           enable_daemon = true;
-          follow_focused_output = false;
+          follow_focused_output = true;
           history_retention_hours = 0;
           keep_dismissed_in_history = true;
           layer = "top";
@@ -547,7 +547,7 @@
           border_color = "outline_variant";
           border_width = 1.0;
           enabled = true;
-          follow_focused_output = false;
+          follow_focused_output = true;
           hide_delay_ms = 1400;
           kinds = {
             bluetooth = true;
