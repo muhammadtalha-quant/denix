@@ -3,7 +3,7 @@
     nixos = { lib, pkgs, ... }: {
       xdg.portal.wlr = {
         enable = true;
-        settings = {
+        settings.screencast = {
           chooser_style = "dmenu";
           chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
         };

@@ -21,7 +21,6 @@
           ./_dotfiles/mango/binds.conf
           ./_dotfiles/mango/config.conf
           ./_dotfiles/mango/gestures.conf
-          ./_dotfiles/mango/imports.conf
           ./_dotfiles/mango/layouts.conf
           ./_dotfiles/mango/looknfeel.conf
           ./_dotfiles/mango/monitors.conf

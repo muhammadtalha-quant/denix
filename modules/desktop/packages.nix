@@ -6,6 +6,7 @@
       ];
       environment.systemPackages = [
         pkgs.libnotify
+	pkgs.wlr-randr
       ];
     };
     homeManager = { pkgs, ... }: {
