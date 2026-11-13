@@ -4,7 +4,7 @@
       xdg.portal.wlr = {
         enable = true;
         settings.screencast = {
-          chooser_style = "dmenu";
+          chooser_type = "dmenu";
           chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
         };
       };
