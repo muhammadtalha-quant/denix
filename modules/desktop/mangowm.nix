@@ -17,11 +17,9 @@
         enable = true;
         package = pkgs.mango;
         systemd.enable = true;
-        systemd.extraCommands = [
-          "systemctl --user reset-failed"
-          "systemctl --user start mango-session.target"
-          "systemctl --user start xdg-desktop-portal.service"
-        ];
+        autostart_sh = ''
+          systemctl --user restart xdg-desktop-portal.service
+        '';
         extraConfig = lib.concatMapStringsSep "\n" lib.readFile [
           ./_dotfiles/mango/config.conf
           ./_dotfiles/mango/binds.conf
