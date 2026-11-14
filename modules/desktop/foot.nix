@@ -12,10 +12,6 @@
           systemdTarget = "mango-session.target";
         };
         settings = {
-          cursor = {
-            style = "beam";
-            blink = "yes";
-          };
           scrollback = {
             lines = 100000;
           };
