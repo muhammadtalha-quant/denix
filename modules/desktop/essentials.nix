@@ -9,7 +9,6 @@
     homeManager = {
       programs = {
         ripgrep.enable = true;
-        obsidian.enable = true;
         starship = {
           enable = true;
           enableFishIntegration = true;

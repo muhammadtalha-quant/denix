@@ -1,9 +1,10 @@
 { extras, desktop, ... }: {
-  den.aspects.hyprland-desktop = {
+  den.aspects.mangowm-desktop = {
     includes = [
-      desktop.hyprland
+      desktop.mangowm
       desktop.xdg
-      desktop.kitty
+      desktop.foot
+      desktop.obsidian
       desktop.zeditor
       desktop.noctalia
       desktop.environment

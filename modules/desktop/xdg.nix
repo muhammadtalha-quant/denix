@@ -1,27 +1,42 @@
 {
-  desktop.xdg.homeManager = { pkgs, ... }: {
-    xdg = {
-      portal = {
+  desktop.xdg = {
+    nixos = { pkgs, ... }: {
+      xdg.portal.wlr = {
         enable = true;
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-hyprland
-        ];
-        config = {
-          common = {
-            default = [
-              "hyprland"
-              "gtk"
-            ];
-            "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-            "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-          };
+        settings.screencast = {
+          chooser_type = "dmenu";
+          chooser_cmd = "${pkgs.noctalia}/bin/noctalia dmenu -p 'Share to Record'";
         };
       };
-      userDirs.enable = true;
-      userDirs.createDirectories = true;
-      localBinInPath = true;
+    };
+    homeManager = { pkgs, ... }: {
+      xdg = {
+        portal = {
+          enable = true;
+          extraPortals = [
+            pkgs.xdg-desktop-portal-gtk
+            pkgs.xdg-desktop-portal-wlr
+          ];
+          config = {
+            common = {
+              default = [
+                "gtk"
+              ];
+            };
+            mango = {
+              default = [
+                "gtk"
+              ];
+              "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+              "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+            };
+          };
+        };
+        userDirs.enable = true;
+        userDirs.createDirectories = true;
+        localBinInPath = true;
+      };
     };
   };
 }

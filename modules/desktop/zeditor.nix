@@ -2,11 +2,11 @@
   desktop.zeditor.homeManager = { pkgs, ... }: {
     programs.zed-editor = {
       enable = true;
+      package = pkgs.zed-editor-fhs;
       extraPackages = with pkgs; [
         nixfmt
         nil
         nixd
-        lua-language-server
         vscode-json-languageserver
         yaml-language-server
         bash-language-server
@@ -23,9 +23,6 @@
         close_panel_on_toggle = false;
         collaboration_panel = {
           button = false;
-        };
-        cursor_animation = {
-          enabled = true;
         };
         debugger = {
           button = false;
@@ -80,7 +77,7 @@
           git_status_indicator = true;
           hide_gitignore = true;
         };
-        restore_on_startup = "launchpad";
+        restore_on_startup = "last_session";
         search = {
           button = false;
         };
@@ -145,6 +142,11 @@
             ctrl-q = "zed::Quit";
             ctrl-shift-b = "outline_panel::Toggle";
             ctrl-shift-w = "workspace::CloseWindow";
+          };
+        }
+        {
+          bindings = {
+            ctrl-alt-b = null;
           };
         }
         {

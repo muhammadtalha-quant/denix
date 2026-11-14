@@ -32,6 +32,10 @@
     };
 
     schema.user.classes = lib.mkDefault [ "homeManager" ];
-    schema.host.includes = [ den.aspects.nixos-core ];
+    schema.host.includes = [
+      den.aspects.nixos-core
+      den.batteries.user-aspects
+      den.batteries.mutual-provider
+    ];
   };
 }

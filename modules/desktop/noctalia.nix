@@ -3,14 +3,9 @@
     nixos.programs.noctalia = {
       enable = true;
       recommendedServices.enable = true;
-      systemd = {
-        enable = true;
-        target = "hyprland-session.target";
-      };
     };
     homeManager.programs.noctalia = {
       enable = true;
-      systemd.enable = true;
       settings = {
         accessibility = {
           high_contrast = false;
@@ -39,14 +34,14 @@
             border = "outline_variant";
             border_width = 0.0;
             capsule = true;
-            capsule_border = "on_primary";
+            capsule_border = "primary";
             capsule_border_width = 1.0;
             capsule_fill = "on_primary";
             capsule_foreground = "on_surface";
             capsule_group = [ ];
             capsule_opacity = 0.8499999642372131;
-            capsule_padding = 18.0;
-            capsule_radius = 15.0;
+            capsule_padding = 9.0;
+            capsule_radius = 8.0;
             capsule_thickness = 0.75;
             center = [
               "audio_visualizer"
@@ -226,9 +221,7 @@
           session_locked = [ ];
           session_unlocked = [ ];
           shutting_down = [ ];
-          started = [
-            "hyprctl reload"
-          ];
+          started = [ ];
           theme_mode_changed = [ ];
           wallpaper_changed = [ ];
           wifi_disabled = [ ];
@@ -335,7 +328,7 @@
         };
         lockscreen = {
           allow_empty_password = true;
-          blur_intensity = 0.8499999642372131;
+          blur_intensity = 0.35;
           blurred_desktop = true;
           edge_smoothness = 0.30000001192092896;
           enabled = true;
@@ -408,7 +401,7 @@
                 background_radius = 0.0;
                 center_password_text = true;
                 input_opacity = 0.0;
-                input_radius = 19.0;
+                input_radius = 8.0;
                 layout = "regular";
                 show_caps_lock = true;
                 show_keyboard_layout = true;
@@ -529,7 +522,7 @@
           border_width = 1.0;
           collapse_on_dismiss = true;
           enable_daemon = true;
-          follow_focused_output = false;
+          follow_focused_output = true;
           history_retention_hours = 0;
           keep_dismissed_in_history = true;
           layer = "top";
@@ -549,7 +542,7 @@
           border_color = "outline_variant";
           border_width = 1.0;
           enabled = true;
-          follow_focused_output = false;
+          follow_focused_output = true;
           hide_delay_ms = 1400;
           kinds = {
             bluetooth = true;
@@ -587,7 +580,6 @@
           auto_update = "all";
           enabled = [
             "noctalia/screen_recorder"
-            "noctalia/kaomoji"
           ];
           source = [
             {
@@ -834,15 +826,6 @@
           umbriel_audio_provider_enabled = false;
           umbriel_overview_close_on_launch_enabled = false;
           umbriel_overview_type_to_launch_enabled = false;
-          window_switcher = {
-            current_workspace_only = false;
-            mru = false;
-            show_all_outputs = true;
-            show_app_icon = true;
-            show_caption = true;
-            show_count = true;
-            style = "carousel";
-          };
         };
         storage = {
           key_file = "";
@@ -894,9 +877,9 @@
           source = "custom";
           sync_color_scheme = true;
           templates = {
-            builtin_ids = [ ];
+            builtin_ids = [ "mango" ];
             community_ids = [ ];
-            enable_builtin_templates = false;
+            enable_builtin_templates = true;
             enable_community_templates = false;
           };
           wallpaper_scheme = "m3-content";

@@ -104,5 +104,8 @@
           };
         };
       };
+    homeManager.stylix.targets = {
+      hyprland.image.enable = false;
+    };
   };
 }

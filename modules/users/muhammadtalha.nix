@@ -3,7 +3,7 @@
     includes = [
       den.batteries.primary-user
       (den.batteries.user-shell "fish")
-      den.aspects.hyprland-desktop
+      den.aspects.mangowm-desktop
     ];
     user.hashedPassword = user.hashedPassword;
     provides.to-hosts.homeManager = {

@@ -4,7 +4,10 @@
       fonts.packages = with pkgs; [
         newcomputermodern
       ];
-      environment.systemPackages = [ ];
+      environment.systemPackages = with pkgs; [
+        zlib
+        wlr-randr
+      ];
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
@@ -22,6 +25,7 @@
         video-downloader
         claude-code
         _9router
+        ghgrab
       ];
     };
   };
