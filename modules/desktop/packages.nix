@@ -4,9 +4,9 @@
       fonts.packages = with pkgs; [
         newcomputermodern
       ];
-      environment.systemPackages = [
-        pkgs.zlib
-        pkgs.wlr-randr
+      environment.systemPackages = with pkgs; [
+        zlib
+        wlr-randr
       ];
     };
     homeManager = { pkgs, ... }: {
