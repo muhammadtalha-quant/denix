@@ -5,7 +5,7 @@
         newcomputermodern
       ];
       environment.systemPackages = [
-        pkgs.libnotify
+        pkgs.zlib
         pkgs.wlr-randr
       ];
     };
