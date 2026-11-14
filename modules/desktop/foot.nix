@@ -12,10 +12,6 @@
           systemdTarget = "mango-session.target";
         };
         settings = {
-          bell = {
-            system = "yes";
-            notify = "yes";
-          };
           cursor = {
             style = "beam";
             blink = "yes";
@@ -26,7 +22,6 @@
           csd = {
             preferred = "none";
           };
-
           main = {
             font-size-adjustment = 2.0;
           };

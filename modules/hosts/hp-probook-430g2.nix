@@ -17,7 +17,6 @@
           bluetooth.powerOnBoot = true;
         };
         hardware.facter.reportPath = ./hp-probook-430g2.json;
-        boot.kernelPackages = pkgs.linuxPackages_zen;
       };
   };
 }
