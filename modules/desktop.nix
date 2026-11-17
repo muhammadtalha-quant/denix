@@ -1,7 +1,7 @@
 { extras, desktop, ... }: {
-  den.aspects.mangowm-desktop = {
+  den.aspects.swaywm-desktop = {
     includes = [
-      desktop.mangowm
+      desktop.sway
       desktop.xdg
       desktop.foot
       desktop.obsidian

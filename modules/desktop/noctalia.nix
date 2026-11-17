@@ -41,7 +41,7 @@
             capsule_group = [ ];
             capsule_opacity = 0.8499999642372131;
             capsule_padding = 9.0;
-            capsule_radius = 8.0;
+            capsule_radius = 0.0;
             capsule_thickness = 0.75;
             center = [
               "audio_visualizer"
@@ -577,7 +577,7 @@
           };
         };
         plugins = {
-          auto_update = "all";
+          auto_update = "official";
           enabled = [
             "noctalia/screen_recorder"
           ];
@@ -589,7 +589,7 @@
               name = "official";
             }
             {
-              enabled = true;
+              enabled = false;
               kind = "git";
               location = "https://github.com/noctalia-dev/community-plugins";
               name = "community";
@@ -676,8 +676,6 @@
           mpris = {
             blacklist = [ ];
           };
-          niri_overview_close_on_launch_enabled = false;
-          niri_overview_type_to_launch_enabled = false;
           offline_mode = false;
           panel = {
             border_color = "outline_variant";
@@ -823,9 +821,6 @@
           show_location = true;
           telemetry_enabled = false;
           time_format = "{:%I:%M %p}";
-          umbriel_audio_provider_enabled = false;
-          umbriel_overview_close_on_launch_enabled = false;
-          umbriel_overview_type_to_launch_enabled = false;
         };
         storage = {
           key_file = "";
@@ -877,9 +872,9 @@
           source = "custom";
           sync_color_scheme = true;
           templates = {
-            builtin_ids = [ "mango" ];
+            builtin_ids = [ ];
             community_ids = [ ];
-            enable_builtin_templates = true;
+            enable_builtin_templates = false;
             enable_community_templates = false;
           };
           wallpaper_scheme = "m3-content";

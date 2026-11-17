@@ -105,7 +105,7 @@
         };
       };
     homeManager.stylix.targets = {
-      hyprland.image.enable = false;
+      sway.useWallpaper = false;
     };
   };
 }
