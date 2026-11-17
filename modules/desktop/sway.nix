@@ -1,17 +1,17 @@
 {
   desktop.sway = {
-    nixos = {
+    nixos = { pkgs, ... }: {
       programs.sway = {
         enable = true;
         xwayland.enable = true;
-        extraPackages = [ ];
+        extraPackages = [ pkgs.autotiling ];
         wrapperFeatures = {
           base = true;
           gtk = true;
         };
       };
     };
-    homeManager = { lib, ... }: {
+    homeManager = { lib, pkgs, ... }: {
       wayland.windowManager.sway = {
         enable = true;
         xwayland = true;
@@ -24,9 +24,20 @@
           base = true;
           gtk = true;
         };
-        extraConfigEarly = ''
-          exec systemctl --user restart xdg-desktop-portal.service
-        '';
+        config.startup = [
+          {
+            command = "${pkgs.autotiling}/bin/autotiling";
+            always = true;
+          }
+          {
+            command = "${pkgs.noctalia}/bin/noctalia";
+            always = false;
+          }
+          {
+            command = "systemctl --user restart xdg-desktop-portal.service";
+            always = true;
+          }
+        ];
         extraConfig = lib.concatMapStringsSep "\n" lib.readFile [
           ./_dotfiles/sway/config.conf
           ./_dotfiles/sway/binds.conf
