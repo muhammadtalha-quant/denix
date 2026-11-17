@@ -717,8 +717,8 @@
           };
           readline_shortcuts = false;
           screen_corners = {
-            enabled = true;
-            size = 20;
+            enabled = false;
+            size = 1;
           };
           screen_time_enabled = false;
           screenshot = {
