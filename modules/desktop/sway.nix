@@ -1,10 +1,10 @@
 {
   desktop.sway = {
-    nixos = { pkgs, ... }: {
+    nixos = {
       programs.sway = {
         enable = true;
         xwayland.enable = true;
-        extraPackages = [ pkgs.autotiling ];
+        extraPackages = [ ];
         wrapperFeatures = {
           base = true;
           gtk = true;
@@ -25,10 +25,6 @@
           gtk = true;
         };
         config.startup = [
-          {
-            command = "${pkgs.autotiling}/bin/autotiling";
-            always = true;
-          }
           {
             command = "${pkgs.noctalia}/bin/noctalia";
             always = false;
