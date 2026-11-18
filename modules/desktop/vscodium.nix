@@ -36,7 +36,7 @@
         profiles.default = {
           mutableUserSettings = true;
           languageSnippets = langSnippets;
-          globalSnippets = "${pluginDRV}/snippets/global.json";
+          globalSnippets = langSnippets.all;
           enableUpdateCheck = true;
           enableExtensionUpdateCheck = true;
         };
