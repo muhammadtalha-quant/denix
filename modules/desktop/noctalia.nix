@@ -35,7 +35,7 @@
             border_width = 0.0;
             capsule = true;
             capsule_border = "primary";
-            capsule_border_width = 1.0;
+            capsule_border_width = 2.0;
             capsule_fill = "on_primary";
             capsule_foreground = "on_surface";
             capsule_group = [ ];
@@ -132,7 +132,7 @@
             show_events_location = false;
             show_week_numbers = true;
           };
-          circular_avatar = true;
+          circular_avatar = false;
           hidden_tabs = [ ];
           media = {
             show_visualizer = true;
@@ -176,7 +176,7 @@
           border = "outline_variant";
           border_width = 0.0;
           compositor_blur = true;
-          concave_edge_corners = true;
+          concave_edge_corners = false;
           cross_axis_padding = 8;
           enabled = false;
           icon_size = 48;
@@ -195,11 +195,11 @@
           margin_ends = 0;
           pinned = [ ];
           position = "bottom";
-          radius = 16;
-          radius_bottom_left = 16;
-          radius_bottom_right = 16;
-          radius_top_left = 16;
-          radius_top_right = 16;
+          radius = 0;
+          radius_bottom_left = 0;
+          radius_bottom_right = 0;
+          radius_top_left = 0;
+          radius_top_right = 0;
           reserve_space = true;
           shadow = true;
           show_dots = false;
@@ -328,7 +328,7 @@
         };
         lockscreen = {
           allow_empty_password = true;
-          blur_intensity = 0.35;
+          blur_intensity = 0.3499999940395355;
           blurred_desktop = true;
           edge_smoothness = 0.30000001192092896;
           enabled = true;
@@ -338,12 +338,17 @@
           monitors = [ ];
           tint_intensity = 0.6499999761581421;
           transition = [
-            "fade"
-            "wipe"
+            "diamond"
             "disc"
-            "stripes"
-            "zoom"
+            "fade"
+            "golden"
             "honeycomb"
+            "melt"
+            "pixel"
+            "stripes"
+            "vortex"
+            "wipe"
+            "zoom"
           ];
           transition_duration = 1500.0;
           wallpaper = "";
@@ -353,43 +358,15 @@
           grid = {
             cell_size = 16;
             major_interval = 4;
-            visible = false;
+            visible = true;
           };
           schema_version = 2;
           widget = {
-            "lockscreen-login-box@DP-1" = {
-              box_height = 196.0;
-              box_width = 810.0;
-              cx = 512.0;
-              cy = 586.0;
-              enabled = true;
-              output = "DP-1";
-              placement_height = 0.0;
-              placement_width = 0.0;
-              rotation = 0.0;
-              settings = {
-                background_color = "surface_container";
-                background_radius = 12.0;
-                center_password_text = false;
-                input_opacity = 1.0;
-                input_radius = 6.0;
-                layout = "regular";
-                show_caps_lock = true;
-                show_keyboard_layout = true;
-                show_login_button = true;
-                show_media = true;
-                show_password_reveal = false;
-                show_session_buttons = true;
-                show_unlock_hint = true;
-                show_weather = true;
-              };
-              type = "login_box";
-            };
             "lockscreen-login-box@eDP-1" = {
               box_height = 196.0;
               box_width = 810.0;
               cx = 683.0;
-              cy = 538.6796875;
+              cy = 536.80859375;
               enabled = true;
               output = "eDP-1";
               placement_height = 768.0;
@@ -401,7 +378,7 @@
                 background_radius = 0.0;
                 center_password_text = true;
                 input_opacity = 0.0;
-                input_radius = 8.0;
+                input_radius = 0.0;
                 layout = "regular";
                 show_caps_lock = true;
                 show_keyboard_layout = true;
@@ -409,7 +386,7 @@
                 show_media = true;
                 show_password_reveal = false;
                 show_session_buttons = true;
-                show_unlock_hint = false;
+                show_unlock_hint = true;
                 show_weather = true;
               };
               type = "login_box";
@@ -463,10 +440,10 @@
               type = "clock";
             };
             lockscreen-widget-0000000000000002 = {
-              box_height = 40.1796989440918;
-              box_width = 828.42578125;
+              box_height = 41.83993148803711;
+              box_width = 1019.5625;
               cx = 683.0;
-              cy = 551.1171875;
+              cy = 550.416015625;
               enabled = true;
               output = "eDP-1";
               placement_height = 768.0;
@@ -474,7 +451,7 @@
               rotation = -3.1415927410125732;
               settings = {
                 background = false;
-                bands = 120;
+                bands = 128;
                 centered = false;
                 color_1 = "primary";
                 color_2 = "secondary";
@@ -502,7 +479,6 @@
           };
           widget_order = [
             "lockscreen-login-box@winit"
-            "lockscreen-login-box@DP-1"
             "lockscreen-login-box@eDP-1"
             "lockscreen-widget-0000000000000001"
             "lockscreen-widget-0000000000000002"
@@ -612,7 +588,7 @@
           clipboard_history_max_entries = 100;
           clipboard_image_action_command = "";
           clipboard_keep_from_closed_apps = true;
-          corner_radius_scale = 1.0;
+          corner_radius_scale = 0.0;
           date_format = "%A, %x";
           disable_mipmaps = false;
           external_ip_enabled = false;
@@ -720,7 +696,7 @@
             enabled = false;
             size = 1;
           };
-          screen_time_enabled = false;
+          screen_time_enabled = true;
           screenshot = {
             annotate = true;
             close_on_copy = true;
@@ -736,7 +712,7 @@
             pipe_to_command = false;
             quality = 90;
             region_border_width = 2.0;
-            region_dim_opacity = 0.6499999761581421;
+            region_dim_opacity = 0.6599999666213989;
             region_modifier = "none";
             remember_last_region = false;
             save_to_file = true;
@@ -808,7 +784,7 @@
             power = { };
             show_shortcuts = true;
           };
-          settings_expand_all_groups = false;
+          settings_expand_all_groups = true;
           settings_show_advanced = false;
           settings_window_translucent = false;
           setup_wizard_enabled = true;
@@ -821,6 +797,15 @@
           show_location = true;
           telemetry_enabled = false;
           time_format = "{:%I:%M %p}";
+          window_switcher = {
+            current_workspace_only = false;
+            mru = false;
+            show_all_outputs = true;
+            show_app_icon = true;
+            show_caption = true;
+            show_count = true;
+            style = "carousel";
+          };
         };
         storage = {
           key_file = "";
@@ -866,15 +851,20 @@
           };
         };
         theme = {
+          builtin = "Noctalia";
+          community_palette = "Oxocarbon";
           custom_palette = "stylix";
+          mode = "dark";
           pure_black_dark = false;
           shell_mode = "follow";
           source = "custom";
           sync_color_scheme = true;
           templates = {
-            builtin_ids = [ ];
+            builtin_ids = [
+              "mango"
+            ];
             community_ids = [ ];
-            enable_builtin_templates = false;
+            enable_builtin_templates = true;
             enable_community_templates = false;
           };
           wallpaper_scheme = "m3-content";
@@ -926,7 +916,7 @@
               left = "exec noctalia msg panel-toggle control-center media";
               middle = "none";
             };
-            bands = 18;
+            bands = 43;
             capsule = true;
             capsule_padding = 0;
             color_1 = "primary";
@@ -1033,6 +1023,9 @@
           recorder = {
             type = "noctalia/screen_recorder:recorder";
           };
+          recorder_2 = {
+            type = "noctalia/screen_recorder:recorder";
+          };
           screenshot = {
             actions = {
               middle = "none";
@@ -1058,6 +1051,11 @@
           spacer_3 = {
             length = 15;
             type = "spacer";
+          };
+          sysmon = {
+            stat = "ram_used";
+            type = "sysmon";
+            visualization = "none";
           };
           temp = {
             stat = "cpu_temp";
