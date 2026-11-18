@@ -23,8 +23,6 @@
         eza
         bat
         video-downloader
-        claude-code
-        _9router
         ghgrab
       ];
     };
