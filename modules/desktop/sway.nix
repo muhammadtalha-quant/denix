@@ -33,11 +33,14 @@
             command = "systemctl --user restart xdg-desktop-portal.service";
             always = true;
           }
+          {
+            command = "exec swaymsg workspace number 1";
+            always = true;
+          }
         ];
         extraConfig = lib.concatMapStringsSep "\n" lib.readFile [
           ./_dotfiles/sway/binds.conf
           ./_dotfiles/sway/gestures.conf
-          ./_dotfiles/sway/layouts.conf
           ./_dotfiles/sway/looknfeel.conf
           ./_dotfiles/sway/rules.conf
         ];
