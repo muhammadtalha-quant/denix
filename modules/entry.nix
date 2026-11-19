@@ -6,6 +6,7 @@
 
   flake-file.inputs = {
     flake-file.url = lib.mkDefault "github:denful/flake-file";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     flake-parts = {
       inputs.nixpkgs-lib.follows = "nixpkgs-lib";
       url = "github:hercules-ci/flake-parts";
@@ -28,4 +29,12 @@
       };
     };
   };
+  flake-file.do-not-edit = ''
+    #                                    ##### DISCLAIMER BEGIN #####
+    # This flake file was automatically generated and is not intended for direct edits.
+    # It defines inputs and outputs, it is not advised to edit outputs if you don't understand flakes, flake-parts and dendritic pattern.
+    # If you want to add inputs to your flake file, add your inputs to `modules/entry.nix` inside flake-file.inputs = { ... } attribute set.
+    # To persist your edits, run `nix run .#write-flake` in repository root to generate new flake.nix from `modules/entry.nix`.
+    #                                    ##### DISCLAIMER END #####
+  '';
 }
