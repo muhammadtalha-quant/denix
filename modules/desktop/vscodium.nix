@@ -7,7 +7,7 @@
       languages = map (
         snippet:
         if (builtins.isList snippet.language && builtins.length snippet.language == 1) then
-          lib.toString snippet.language
+          builtins.head snippet.language
         else
           snippet.language
       ) snippetsJSON;
