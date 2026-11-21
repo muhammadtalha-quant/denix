@@ -5,8 +5,11 @@
         newcomputermodern
       ];
       environment.systemPackages = with pkgs; [
-        zlib
-        wlr-randr
+        wl-mirror
+        wev
+        ddcutil
+        wl-clipboard
+        kanshi
       ];
     };
     homeManager = { pkgs, ... }: {
