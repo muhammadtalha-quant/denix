@@ -6,6 +6,7 @@
       ];
       environment.systemPackages = with pkgs; [
         wl-mirror
+        yq-go
         wev
         ddcutil
         wl-clipboard
