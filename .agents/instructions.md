@@ -53,7 +53,7 @@ compose those aspects.
       and `virtualisation` (`extras.virtualisation`).
     - `disko`: declarative storage partitioning (`disko.ext4-simple`).
   - Core aspects outside these namespaces live under `den.aspects.<name>`
-    (`nixos-core`, `hyprland-desktop`, host aspects, user aspects).
+    (`nixos-core`, `mangowm-desktop`, host aspects, user aspects).
 
 - **Module Scoping**:
   - Aspects can define `nixos` (system-level) and/or `homeManager` (user-level)
@@ -80,7 +80,7 @@ compose those aspects.
 ## Desktop & Dotfiles Wiring
 
 - **Aggregator Aspect**:
-  - `den.aspects.hyprland-desktop` in `modules/desktop.nix` aggregates
+  - `den.aspects.mangowm-desktop` in `modules/desktop.nix` aggregates
     individual modular aspects from the `desktop.*` namespace and applies the
     curated theme via `(extras.theme "gruvbox-dark-medium")`.
 - **Subsystems in `modules/desktop/`**:
@@ -173,7 +173,7 @@ compose those aspects.
     configuration aspect in `modules/users/<username>.nix`.
   - User aspects compose batteries and aspects directly:
     `den.batteries.primary-user`, `(den.batteries.user-shell "fish")`, and
-    `den.aspects.hyprland-desktop`.
+    `den.aspects.mangowm-desktop`.
 
 ---
 
