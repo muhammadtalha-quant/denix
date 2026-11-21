@@ -1,4 +1,4 @@
-{
+{ inputs, ... }: {
   desktop.vscodium.homeManager =
     { lib, pkgs, ... }:
     let
@@ -29,17 +29,42 @@
       );
     in
     {
+      nixpkgs.overlays = [
+        inputs.vscode-extensions.overlays.default
+      ];
       programs.vscodium = {
         enable = true;
         package = pkgs.vscodium-fhs;
         mutableExtensionsDir = true;
-        profiles.default = {
-          mutableUserSettings = true;
-          languageSnippets = langSnippets;
-          globalSnippets = langSnippets.all;
-          enableUpdateCheck = true;
-          enableExtensionUpdateCheck = true;
-        };
+        profiles.default =
+          let
+            # vsmp = pkgs.nix-vscode-extensions.vscode-marketplace;
+            ovsx = pkgs.nix-vscode-extensions.open-vsx;
+          in
+          {
+            mutableUserSettings = true;
+            languageSnippets = langSnippets;
+            globalSnippets = langSnippets.all;
+            extensions = [
+              ovsx.jnoortheen.nix-ide
+              # ovsx.
+              # quarto.quarto
+              # redhat.vscode-yaml
+              # ms-vscode.cmake-tools
+              # llvm-vs-code-extensions.vscode-clangd
+              # llvm-vs-code-extensions.lldb-dap
+              # ms-python.python
+              # ms-python.debugpy
+              # charliermarsh.ruff
+              # detachhead.basedpyright
+              # ms-toolsai.jupyter
+              # bierner.markdown-checkbox
+              # bierner.markdown-emoji
+              # bierner.markdown-footnotes
+            ];
+            enableUpdateCheck = true;
+            enableExtensionUpdateCheck = true;
+          };
       };
     };
 }
