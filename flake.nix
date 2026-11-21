@@ -1,9 +1,13 @@
+#
+#
 #                                    ##### DISCLAIMER BEGIN #####
 # This flake file was automatically generated and is not intended for direct edits.
 # It defines inputs and outputs, it is not advised to edit outputs if you don't understand flakes, flake-parts and dendritic pattern.
 # If you want to add inputs to your flake file, add your inputs to `modules/entry.nix` inside flake-file.inputs = { ... } attribute set.
 # To persist your edits, run `nix run .#write-flake` in repository root to generate new flake.nix from `modules/entry.nix`.
 #                                    ##### DISCLAIMER END #####
+#
+#
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
@@ -23,7 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     nixpkgs-lib.follows = "nixpkgs";
     stylix = {
@@ -32,6 +35,10 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
+    };
+    vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
