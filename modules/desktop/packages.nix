@@ -11,7 +11,6 @@
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
-        wl-clipboard
         google-chrome
         nautilus
         papers
