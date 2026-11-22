@@ -38,16 +38,16 @@
         mutableExtensionsDir = true;
         profiles.default =
           let
-            # vsmp = pkgs.nix-vscode-extensions.vscode-marketplace;
+            vsmp = pkgs.nix-vscode-extensions.vscode-marketplace;
             ovsx = pkgs.nix-vscode-extensions.open-vsx;
           in
           {
             mutableUserSettings = true;
             languageSnippets = langSnippets;
             globalSnippets = langSnippets.all;
-            extensions = [
-              ovsx.jnoortheen.nix-ide
-              # ovsx.
+            extensions = with pkgs.vscode-extensions; [
+              jnoortheen.nix-ide
+              mkhl.direnv
               # quarto.quarto
               # redhat.vscode-yaml
               # ms-vscode.cmake-tools
