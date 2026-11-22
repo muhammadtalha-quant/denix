@@ -4,9 +4,10 @@
       enable = true;
       recommendedServices.enable = true;
     };
-    homeManager.programs.noctalia = {
+    homeManager = {lib, ...}: {programs.noctalia = {
         enable = true;
-        settings = ./_dotfiles/noctalia/config.toml;
+        settings = lib.fromTOML (builtins.readFile ./_dotfiles/noctalia/config.toml);
     };
   };
+};
 }
