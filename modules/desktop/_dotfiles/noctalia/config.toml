@@ -67,7 +67,7 @@ order = [ "default" ]
     show_on_workspace_switch = true
     show_tooltip = true
     smart_auto_hide = false
-    start = [ "workspaces", "weather", "launcher" ]
+    start = [ "workspaces", "weather" ]
     thickness = 40
     widget_spacing = 7
 
