@@ -22,13 +22,8 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 │   ├── defaults.nix
 │   ├── desktop
 │   │   ├── _dotfiles
-│   │   │   ├── noctalia
-│   │   │   │   └── config.toml
-│   │   │   └── sway
-│   │   │       ├── binds.conf
-│   │   │       ├── gestures.conf
-│   │   │       ├── looknfeel.conf
-│   │   │       └── rules.conf
+│   │   │   └── noctalia
+│   │   │       └── config.toml
 │   │   ├── environment.nix
 │   │   ├── essentials.nix
 │   │   ├── fish.nix
