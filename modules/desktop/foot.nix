@@ -9,7 +9,7 @@
         enable = true;
         server = {
           enable = true;
-          systemdTarget = "mango-session.target";
+          systemdTarget = "sway-session.target";
         };
         settings = {
           scrollback = {
