@@ -7,5 +7,6 @@
 }:
 
 {
+stdenv = pkgs.stdenvNoCC;
 languages.nix.enable = true;
 }
