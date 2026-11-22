@@ -225,6 +225,26 @@
         "type": "github"
       }
     },
+    "nix-vscode-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795242707,
+        "narHash": "sha256-6oQIvb8T/JQ7LBLeoUOJejC8BjVd79LPKDIu6AJy5B4=",
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "rev": "82f3cfa702235ed5b43eea7ca2acf7bfc1408efd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1794890597,
@@ -271,12 +291,12 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
         "nixpkgs-lib": [
           "nixpkgs"
         ],
-        "stylix": "stylix",
-        "vscode-extensions": "vscode-extensions"
+        "stylix": "stylix"
       }
     },
     "stylix": {
@@ -391,26 +411,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "vscode-extensions": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1795071277,
-        "narHash": "sha256-cV7fcenrEpJ1s1AjI8X3BnAQVqmzMYt5oPV/fjR9P1c=",
-        "owner": "nix-community",
-        "repo": "nix-vscode-extensions",
-        "rev": "f80658b487635b3e7156ad61606033f0dc5316bf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nix-vscode-extensions",
         "type": "github"
       }
     }

@@ -27,6 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     nixpkgs-lib.follows = "nixpkgs";
     stylix = {
@@ -35,10 +39,6 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
-    };
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
