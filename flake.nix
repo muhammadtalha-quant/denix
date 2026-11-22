@@ -36,7 +36,7 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    vscode-extensions = {
+    nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };

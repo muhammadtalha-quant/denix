@@ -1,4 +1,7 @@
 { inputs, ... }: {
+  desktop.vscodium.nixos.nixpkgs.overlays = [
+        inputs.nix-vscode-extensions.overlays.default
+      ];
   desktop.vscodium.homeManager =
     { lib, pkgs, ... }:
     let
@@ -29,9 +32,6 @@
       );
     in
     {
-      nixpkgs.overlays = [
-        inputs.vscode-extensions.overlays.default
-      ];
       programs.vscodium = {
         enable = true;
         package = pkgs.vscodium-fhs;
