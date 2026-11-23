@@ -154,6 +154,15 @@
         };
         nix-search-tv = {
           enable = true;
+settings = {
+	indexes = [	
+	"nixpkgs"
+	"home-manager"
+	"noogle"
+	"nixos"
+	
+		];
+};
           enableTelevisionIntegration = true;
         };
       };
