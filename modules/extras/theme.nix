@@ -106,7 +106,6 @@
       };
     homeManager.stylix.targets = {
       sway.useWallpaper = false;
-wayprompt.enable = false;
     };
   };
 }
