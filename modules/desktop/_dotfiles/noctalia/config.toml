@@ -1,4 +1,5 @@
 [accessibility]
+font_scale = 1.0
 high_contrast = false
 ui_scale = 1.0
 
@@ -34,17 +35,16 @@ order = [ "default" ]
     capsule_border_width = 2.0
     capsule_fill = "on_primary"
     capsule_foreground = "on_surface"
-    capsule_group = []
     capsule_opacity = 0.84999996423721313
     capsule_padding = 9.0
     capsule_radius = 0.0
     capsule_thickness = 0.75
-    center = [ "audio_visualizer", "notifications", "clock", "audio_visualizer" ]
+    center = [ "notifications", "clock" ]
     compositor_blur = true
     concave_edge_corners = false
     contact_shadow = false
     enabled = true
-    end = [ "privacy", "network", "bluetooth", "volume", "brightness", "battery" ]
+    end = [ "privacy", "power_profile", "caffeine", "network", "bluetooth", "volume", "brightness", "battery" ]
     font_family = "JetBrainsMono NFM"
     font_scale = 1.0
     font_weight = 700
@@ -67,12 +67,29 @@ order = [ "default" ]
     show_on_workspace_switch = true
     show_tooltip = true
     smart_auto_hide = false
-    start = [ "workspaces", "weather" ]
+    start = [ "workspaces", "weather", "group:g1" ]
     thickness = 40
     widget_spacing = 7
 
         [bar.default.dead_zone]
         click_through = false
+
+            [bar.default.dead_zone.actions]
+            right = "none"
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        border_width = 2.0
+        enabled = true
+        fill = "on_primary"
+        foreground = "on_surface"
+        id = "g1"
+        members = [ "media", "audio_visualizer" ]
+        opacity = 0.84999996423721313
+        padding = 9.0
+        radius = 0.0
 
 [battery]
 warning_threshold = 20
@@ -121,7 +138,7 @@ width = 700
     show_week_numbers = true
 
     [control_center.media]
-    show_visualizer = true
+    show_visualizer = false
 
     [[control_center.shortcuts]]
     type = "wifi"
@@ -340,6 +357,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = true
@@ -369,6 +387,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -398,6 +417,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -406,12 +426,12 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@WL-1"]
     box_height = 196.0
     box_width = 720.0
-    cx = 333.5
-    cy = 522.515625
+    cx = 219.0
+    cy = 499.50714111328125
     enabled = true
     output = "WL-1"
-    placement_height = 704.0
-    placement_width = 667.0
+    placement_height = 673.0
+    placement_width = 438.0
     rotation = 0.0
     type = "login_box"
 
@@ -427,6 +447,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -456,6 +477,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = false
         show_media = true
+        show_media_controls = true
         show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = true
@@ -485,6 +507,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = true
@@ -924,7 +947,7 @@ terminal_colors = "palette"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "mango" ]
+    builtin_ids = []
     community_ids = []
     enable_builtin_templates = true
     enable_community_templates = false
@@ -966,14 +989,18 @@ title_scroll = "always"
 type = "active_window"
 
 [widget.audio_visualizer]
-bands = 43
+bands = 10
 capsule = true
 capsule_padding = 0
-color_1 = "primary"
-color_2 = "secondary"
-interactive = false
+centered = false
+color_1 = "secondary"
+color_2 = "tertiary"
+interactive = true
+show_glyph = false
+show_tooltip = false
+show_when_idle = true
 type = "audio_visualizer"
-width = 175
+width = 120
 
     [widget.audio_visualizer.actions]
     left = "exec noctalia msg panel-toggle control-center media"
@@ -1026,12 +1053,25 @@ show_scroll_lock = false
 type = "lock_keys"
 
 [widget.media]
-art_size = 16.0
+art_size = 18
+hide_album_art = true
+hide_artist = true
+hide_when_idle = true
 hide_when_no_media = true
-max_length = 240
+max_length = 120
 min_length = 120
-title_scroll = "none"
+peek = true
+peek_delay_ms = 150
+title_scroll = "always"
 type = "media"
+
+    [widget.media.actions]
+    back = "none"
+    forward = "none"
+    middle = "none"
+    right = "none"
+    scroll_down = "none"
+    scroll_up = "none"
 
 [widget.network]
 show_label = false
