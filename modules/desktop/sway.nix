@@ -69,14 +69,57 @@
           };
 
           modes = {
-            resize = {
-              Left = "resize shrink width 10px";
-              Right = "resize grow width 10px";
-              Up = "resize shrink height 10px";
-              Down = "resize grow height 10px";
-              Return = ''mode "default"'';
-              Escape = ''mode "default"'';
-            };
+resize = {
+  Left = "resize shrink width 10 px";
+  Right = "resize grow width 10 px";
+  Up = "resize shrink height 10 px";
+  Down = "resize grow height 10 px";
+
+  "Shift+Left" = "resize shrink width 50 px";
+  "Shift+Right" = "resize grow width 50 px";
+  "Shift+Up" = "resize shrink height 50 px";
+  "Shift+Down" = "resize grow height 50 px";
+
+  "Control+Left" = "resize shrink width 5 ppt";
+  "Control+Right" = "resize grow width 5 ppt";
+  "Control+Up" = "resize shrink height 5 ppt";
+  "Control+Down" = "resize grow height 5 ppt";
+
+  Return = ''mode "default"'';
+  Escape = ''mode "default"'';
+};
+
+
+output = {
+  # ── Focus Monitor ──
+  Left = "focus output left";
+  Right = "focus output right";
+  Up = "focus output up";
+  Down = "focus output down";
+
+  # ── Move Window + Follow ──
+  "Shift+Left" = "move container to output left; focus output left";
+  "Shift+Right" = "move container to output right; focus output right";
+  "Shift+Up" = "move container to output up; focus output up";
+  "Shift+Down" = "move container to output down; focus output down";
+
+  # ── Move Window Silently ──
+  "Alt+Left" = "move container to output left";
+  "Alt+Right" = "move container to output right";
+  "Alt+Up" = "move container to output up";
+  "Alt+Down" = "move container to output down";
+
+  # ── Move Entire Workspace + Follow ──
+  "Control+Left" = "move workspace to output left; focus output left";
+  "Control+Right" = "move workspace to output right; focus output right";
+  "Control+Up" = "move workspace to output up; focus output up";
+  "Control+Down" = "move workspace to output down; focus output down";
+
+  # ── Exit ──
+  Return = ''mode "default"'';
+  Escape = ''mode "default"'';
+};
+
           };
 
           keybindings = lib.mkForce {
