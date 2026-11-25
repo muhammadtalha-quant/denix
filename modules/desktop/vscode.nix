@@ -1,5 +1,5 @@
 {
-  desktop.vscodium.homeManager =
+  desktop.vscode.homeManager =
     { lib, pkgs, ... }:
     let
       pluginDRV = pkgs.vimPlugins.friendly-snippets;
@@ -29,18 +29,17 @@
       );
     in
     {
-      programs.vscodium = {
+      programs.vscode = {
         enable = true;
-        package = pkgs.vscodium-fhs;
+        package = pkgs.vscode-fhs;
         mutableExtensionsDir = true;
-        profiles.default =
-          {
-            mutableUserSettings = true;
-            languageSnippets = langSnippets;
-            globalSnippets = langSnippets.all;
-            enableUpdateCheck = true;
-            enableExtensionUpdateCheck = true;
-          };
+        profiles.default = {
+          mutableUserSettings = true;
+          languageSnippets = langSnippets;
+          globalSnippets = langSnippets.all;
+          enableUpdateCheck = true;
+          enableExtensionUpdateCheck = true;
+        };
       };
     };
 }
