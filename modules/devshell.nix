@@ -5,7 +5,7 @@
 			packages = with pkgs; [ 
 				nixd
 				nixfmt
-			]
+			];
 		};
 	};
 
