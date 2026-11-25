@@ -1,4 +1,7 @@
-{
+{ desktop, ... }: {
+  desktop.vscode.includes = [
+    desktop.neovim
+  ];
   desktop.vscode.homeManager =
     { lib, pkgs, ... }:
     let
@@ -33,12 +36,16 @@
         enable = true;
         package = pkgs.vscode-fhs;
         mutableExtensionsDir = true;
+
         profiles.default = {
           mutableUserSettings = true;
           languageSnippets = langSnippets;
           globalSnippets = langSnippets.all;
           enableUpdateCheck = true;
           enableExtensionUpdateCheck = true;
+          extensions = with pkgs.vscode-extensions; [
+
+          ];
         };
       };
     };
