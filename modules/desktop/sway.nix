@@ -134,7 +134,7 @@
             "Mod4+Return" = "exec footclient";
             "Mod4+b" = "exec google-chrome";
             "Mod4+e" = "exec nautilus";
-            "Mod4+c" = "exec codium";
+            "Mod4+c" = "exec code";
             "Mod4+semicolon" = "exec localsend_app";
             "Mod4+n" = "exec obsidian";
 
