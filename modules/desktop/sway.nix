@@ -33,19 +33,27 @@
             border = 2;
             commands = [
               {
-                criteria = { all = true; };
+                criteria = {
+                  all = true;
+                };
                 command = "border pixel 2";
               }
               {
-                criteria = { app_id = "xdg-desktop-portal-gtk"; };
+                criteria = {
+                  app_id = "xdg-desktop-portal-gtk";
+                };
                 command = "floating enable, resize set 800 600";
               }
               {
-                criteria = { title = ''^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$''; };
+                criteria = {
+                  title = ''^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$'';
+                };
                 command = "floating enable, resize set 25 ppt 25 ppt";
               }
               {
-                criteria = { app_id = "dev.noctalia.Noctalia"; };
+                criteria = {
+                  app_id = "dev.noctalia.Noctalia";
+                };
                 command = "floating enable, resize set 1166 694";
               }
             ];
@@ -69,56 +77,55 @@
           };
 
           modes = {
-resize = {
-  Left = "resize shrink width 10 px";
-  Right = "resize grow width 10 px";
-  Up = "resize shrink height 10 px";
-  Down = "resize grow height 10 px";
+            resize = {
+              Left = "resize shrink width 10 px";
+              Right = "resize grow width 10 px";
+              Up = "resize shrink height 10 px";
+              Down = "resize grow height 10 px";
 
-  "Shift+Left" = "resize shrink width 50 px";
-  "Shift+Right" = "resize grow width 50 px";
-  "Shift+Up" = "resize shrink height 50 px";
-  "Shift+Down" = "resize grow height 50 px";
+              "Shift+Left" = "resize shrink width 50 px";
+              "Shift+Right" = "resize grow width 50 px";
+              "Shift+Up" = "resize shrink height 50 px";
+              "Shift+Down" = "resize grow height 50 px";
 
-  "Control+Left" = "resize shrink width 5 ppt";
-  "Control+Right" = "resize grow width 5 ppt";
-  "Control+Up" = "resize shrink height 5 ppt";
-  "Control+Down" = "resize grow height 5 ppt";
+              "Control+Left" = "resize shrink width 5 ppt";
+              "Control+Right" = "resize grow width 5 ppt";
+              "Control+Up" = "resize shrink height 5 ppt";
+              "Control+Down" = "resize grow height 5 ppt";
 
-  Return = ''mode "default"'';
-  Escape = ''mode "default"'';
-};
+              Return = ''mode "default"'';
+              Escape = ''mode "default"'';
+            };
 
+            output = {
+              # ── Focus Monitor ──
+              Left = "focus output left";
+              Right = "focus output right";
+              Up = "focus output up";
+              Down = "focus output down";
 
-output = {
-  # ── Focus Monitor ──
-  Left = "focus output left";
-  Right = "focus output right";
-  Up = "focus output up";
-  Down = "focus output down";
+              # ── Move Window + Follow ──
+              "Shift+Left" = "move container to output left; focus output left";
+              "Shift+Right" = "move container to output right; focus output right";
+              "Shift+Up" = "move container to output up; focus output up";
+              "Shift+Down" = "move container to output down; focus output down";
 
-  # ── Move Window + Follow ──
-  "Shift+Left" = "move container to output left; focus output left";
-  "Shift+Right" = "move container to output right; focus output right";
-  "Shift+Up" = "move container to output up; focus output up";
-  "Shift+Down" = "move container to output down; focus output down";
+              # ── Move Window Silently ──
+              "Alt+Left" = "move container to output left";
+              "Alt+Right" = "move container to output right";
+              "Alt+Up" = "move container to output up";
+              "Alt+Down" = "move container to output down";
 
-  # ── Move Window Silently ──
-  "Alt+Left" = "move container to output left";
-  "Alt+Right" = "move container to output right";
-  "Alt+Up" = "move container to output up";
-  "Alt+Down" = "move container to output down";
+              # ── Move Entire Workspace + Follow ──
+              "Control+Left" = "move workspace to output left; focus output left";
+              "Control+Right" = "move workspace to output right; focus output right";
+              "Control+Up" = "move workspace to output up; focus output up";
+              "Control+Down" = "move workspace to output down; focus output down";
 
-  # ── Move Entire Workspace + Follow ──
-  "Control+Left" = "move workspace to output left; focus output left";
-  "Control+Right" = "move workspace to output right; focus output right";
-  "Control+Up" = "move workspace to output up; focus output up";
-  "Control+Down" = "move workspace to output down; focus output down";
-
-  # ── Exit ──
-  Return = ''mode "default"'';
-  Escape = ''mode "default"'';
-};
+              # ── Exit ──
+              Return = ''mode "default"'';
+              Escape = ''mode "default"'';
+            };
 
           };
 
@@ -134,7 +141,6 @@ output = {
             # ── Window Management ──
             "Mod4+q" = "kill";
             "Mod4+t" = "floating toggle, border pixel 2";
-            "Mod4+p" = "sticky toggle";
             "Mod4+f" = "fullscreen toggle";
 
             # ── Focus (Arrow Keys) ──
@@ -150,9 +156,9 @@ output = {
             "Mod4+a" = "focus parent";
             "Mod4+z" = "focus child";
 
-            # ── Resize Mode ──
+            # ── Modes ──
             "Mod4+r" = ''mode "resize"'';
-
+            "Mod4+o" = ''mode "output"'';
             # ── Workspaces: Switch ──
             "Mod4+1" = "workspace number 1";
             "Mod4+2" = "workspace number 2";
