@@ -5,7 +5,7 @@
       desktop.xdg
       desktop.foot
       desktop.obsidian
-      desktop.vscodium
+      desktop.vscode
       desktop.noctalia
       desktop.environment
       desktop.essentials
