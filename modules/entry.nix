@@ -27,10 +27,6 @@
         flake-parts.follows = "flake-parts";
       };
     };
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   flake-file.do-not-edit = ''
     #
