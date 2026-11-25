@@ -134,7 +134,6 @@
             ];
           };
         };
-        devenv.enable = true;
         direnv = {
           enable = true;
           enableFishIntegration = true;
