@@ -31,6 +31,7 @@
           window = {
             titlebar = false;
             border = 2;
+		hideEdgeBorders = "smart";
             commands = [
               {
                 criteria = {
