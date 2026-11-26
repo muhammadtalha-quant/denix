@@ -161,6 +161,10 @@
           enableExtensionUpdateCheck = true;
           extensions = with pkgs.vscode-extensions; [
             asvetliakov.vscode-neovim
+            jnoortheen.nix-ide
+            mkhl.direnv
+            pkief.material-icon-theme
+            pkief.material-product-icons
           ];
         };
       };
