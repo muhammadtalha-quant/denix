@@ -63,7 +63,7 @@
               opt.expandtab = true
               opt.smartindent = true
 
-              opt.timeoutlen = 500
+              opt.timeoutlen = 2000
               opt.updatetime = 250
 
               opt.swapfile = false
@@ -94,31 +94,6 @@
                   })
               end
 
-              -- Mini Move
-              local ok, mini_move = pcall(require, "mini.move")
-              if ok then
-                  mini_move.setup({
-                      mappings = {
-                          left = "<A-h>",
-                          right = "<A-l>",
-                          down = "<A-j>",
-                          up = "<A-k>",
-                      },
-                  })
-              end
-
-              -- Mini Bracketed
-              local ok, mini_bracketed = pcall(require, "mini.bracketed")
-              if ok then
-                  mini_bracketed.setup({
-                      buffer = { suffix = "b" },
-                      comment = { suffix = "c" },
-                      diagnostic = { suffix = "d" },
-                      file = { suffix = "f" },
-                      oldfile = { suffix = "o" },
-                      undo = { suffix = "u" },
-                  })
-              end
 
               local map = vim.keymap.set
               local vscode = require("vscode")
@@ -142,15 +117,15 @@
 
               -- VS Code workbench
               map("n", "<leader>e", action("workbench.view.explorer"))
-              map("n", "<leader>g", action("workbench.view.scm"))
+              map("n", "<leader>gg", action("workbench.view.scm"))
               map("n", "<leader>pp", action("workbench.view.extensions"))
               map("n", "<leader>t", action("workbench.action.terminal.toggleTerminal"))
               map("n", "<leader>x", action("workbench.actions.view.problems"))
               map("n", "<leader>:", action("workbench.action.showCommands"))
               map("n", "<leader>sf", action("workbench.action.findInFiles"))
               map("n", "<leader>ff", action("workbench.action.quickOpen"))
-              map("n", "<leader>sb", action("workbench.action.toggleSidebarVisibility"))
-              map("n", "<leader>bp", action("workbench.action.togglePanel"))
+              map("n", "<leader>bs", action("workbench.action.toggleSidebarVisibility"))
+              map("n", "<leader>bb", action("workbench.action.togglePanel"))
 
               -- Debug sidebar + Debug Console
               map("n", "<leader>dd", function()
@@ -166,12 +141,10 @@
             '';
 
             vscode-nvim = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped {
-              neovimRcContent = neovimRC;
+              luaRcContent = neovimRC;
               plugins = with pkgs.vimPlugins; [
                 mini-surround
-                mini-move
                 mini-ai
-                mini-bracketed
               ];
             };
           in
