@@ -4,7 +4,6 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      vimdiffAlias = true;
       plugins = with pkgs.vimPlugins; [
         mini-surround
         mini-move
@@ -33,53 +32,53 @@
 
         local status_surround, mini_surround = pcall(require, 'mini.surround')
         if status_surround then
-          mini_surround.setup({
-            mappings = {
-              add = 'sa',        
-              delete = 'sd',     
-              replace = 'sr',    
-            },
-          })
+        	mini_surround.setup({
+        		mappings = {
+        			add = 'sa',        
+        			delete = 'sd',     
+        			replace = 'sr',    
+        		},
+        	})
         end
 
         local status_ai, mini_ai = pcall(require, 'mini.ai')
         if status_ai then
-          mini_ai.setup({ n_lines = 500 }) 
+        	mini_ai.setup({ n_lines = 500 }) 
         end
 
         local status_comment, mini_comment = pcall(require, 'mini.comment')
         if status_comment then
-          mini_comment.setup()
+        	mini_comment.setup()
         end
 
         local status_move, mini_move = pcall(require, 'mini.move')
         if status_move then
-          mini_move.setup({
-            mappings = {
-              left  = '<A-h>',
-              right = '<A-l>',
-              down  = '<A-j>',
-              up    = '<A-k>',
-            },
-          })
+        	mini_move.setup({
+        		mappings = {
+        			left  = '<A-h>',
+        			right = '<A-l>',
+        			down  = '<A-j>',
+        			up    = '<A-k>',
+        		},
+        	})
         end
 
         local status_bracketed, mini_bracketed = pcall(require, 'mini.bracketed')
         if status_bracketed then
-          mini_bracketed.setup({
-            buffer     = { suffix = 'b', options = {} },
-            comment    = { suffix = 'c', options = {} },
-            conflict   = { suffix = 'x', options = {} },
-            diagnostic = { suffix = 'd', options = {} },
-            file       = { suffix = 'f', options = {} },
-            indent     = { suffix = 'i', options = {} },
-            jump       = { suffix = 'j', options = {} },
-            location   = { suffix = 'l', options = {} },
-            oldfile    = { suffix = 'o', options = {} },
-            quickfix   = { suffix = 'q', options = {} },
-            treesitter = { suffix = 't', options = {} },
-            undo       = { suffix = 'u', options = {} },
-          })
+        	mini_bracketed.setup({
+        		buffer     = { suffix = 'b', options = {} },
+        		comment    = { suffix = 'c', options = {} },
+        		conflict   = { suffix = 'x', options = {} },
+        		diagnostic = { suffix = 'd', options = {} },
+        		file       = { suffix = 'f', options = {} },
+        		indent     = { suffix = 'i', options = {} },
+        		jump       = { suffix = 'j', options = {} },
+        		location   = { suffix = 'l', options = {} },
+        		oldfile    = { suffix = 'o', options = {} },
+        		quickfix   = { suffix = 'q', options = {} },
+        		treesitter = { suffix = 't', options = {} },
+        		undo       = { suffix = 'u', options = {} },
+        	})
         end
       '';
     };
