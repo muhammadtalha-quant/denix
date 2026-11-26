@@ -59,6 +59,7 @@
         };
         shellInit = ''
           set -U fish_greeting
+          fastfetch
         '';
         plugins = with pkgs.fishPlugins; [
           {
