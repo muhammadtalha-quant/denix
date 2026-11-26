@@ -4,11 +4,17 @@
       fonts.packages = with pkgs; [
         newcomputermodern
       ];
-      environment.systemPackages = [ ];
+      environment.systemPackages = with pkgs; [
+        wl-mirror
+        yq-go
+        wev
+        ddcutil
+        wl-clipboard
+        kanshi
+      ];
     };
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
-        wl-clipboard
         google-chrome
         nautilus
         papers
@@ -20,8 +26,7 @@
         eza
         bat
         video-downloader
-        claude-code
-        _9router
+        ghgrab
       ];
     };
   };

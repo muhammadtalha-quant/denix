@@ -1,5 +1,13 @@
-# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
-# Use `nix run .#write-flake` to regenerate it.
+#
+#
+#                                    ##### DISCLAIMER BEGIN #####
+# This flake file was automatically generated and is not intended for direct edits.
+# It defines inputs and outputs, it is not advised to edit outputs if you don't understand flakes, flake-parts and dendritic pattern.
+# If you want to add inputs to your flake file, add your inputs to `modules/entry.nix` inside flake-file.inputs = { ... } attribute set.
+# To persist your edits, run `nix run .#write-flake` in repository root to generate new flake.nix from `modules/entry.nix`.
+#                                    ##### DISCLAIMER END #####
+#
+#
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 

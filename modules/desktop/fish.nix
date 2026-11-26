@@ -47,7 +47,7 @@
           "..." = "cd ../..";
           "...." = "cd ../../..";
           ns = "tv nix-search-tv";
-          devenvit = "devenv init --include-envrc";
+          envinit = "devenv init --include-envrc";
           cat = "bat";
           repl = "nix repl --expr 'let pkgs = import <nixpkgs> {}; in { inherit pkgs; inherit (pkgs) lib; }'";
           nixos-switch = "nh os switch";
@@ -59,6 +59,7 @@
         };
         shellInit = ''
           set -U fish_greeting
+          fastfetch
         '';
         plugins = with pkgs.fishPlugins; [
           {

@@ -1,10 +1,11 @@
 { extras, desktop, ... }: {
-  den.aspects.hyprland-desktop = {
+  den.aspects.swaywm-desktop = {
     includes = [
-      desktop.hyprland
+      desktop.sway
       desktop.xdg
-      desktop.kitty
-      desktop.zeditor
+      desktop.foot
+      desktop.obsidian
+      desktop.vscode
       desktop.noctalia
       desktop.environment
       desktop.essentials
@@ -12,7 +13,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.theme "gruvbox-dark-medium")
+      (extras.theme "catppuccin-macchiato")
     ];
   };
 }

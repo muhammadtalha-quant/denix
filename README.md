@@ -1,17 +1,18 @@
 # Denix
 
-NixOS and Home Manager configurations built with [Den](https://den.denful.dev).
+A multi-host and mult-user NixOS only configuration based on [den](https://den.denful.dev) libs. It manages core operating system settings, alongside with per user home management embedded into operating system environment, powered by [home-manager](https://nix-community.github.io/home-manager)
 
 ## Configuration
 
 - Host: `hp-probook-430g2`
-- Desktop: Hyprland, UWSM, and Noctalia
-- Theming: Stylix
-- Storage: Disko
+- Desktop: [SwayWM](https://swaywm.org)  and [Noctalia](https://noctalia.dev)
+- Theming: [Stylix](https://nix-community.github.io/stylix)
+- Storage: [Disko](https://github.com/nix-community/disko)
 
 Configurations are organized as reusable aspects and namespaces  under `modules/`.
 
 ### Repository Structure
+
 ```text
 .
 ├── flake.lock
@@ -19,38 +20,25 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 ├── LICENSE
 ├── modules
 │   ├── defaults.nix
+│   ├── definition.nix
 │   ├── desktop
 │   │   ├── _dotfiles
-│   │   │   └── hyprland
-│   │   │       ├── __keybinds__.lua
-│   │   │       ├── animations.lua
-│   │   │       ├── config.lua
-│   │   │       ├── curves.lua
-│   │   │       ├── events.lua
-│   │   │       ├── gestures.lua
-│   │   │       ├── keybinds
-│   │   │       │   ├── applications.lua
-│   │   │       │   ├── noctalia_shell.lua
-│   │   │       │   ├── submaps.lua
-│   │   │       │   ├── windows.lua
-│   │   │       │   └── workspaces.lua
-│   │   │       ├── lib
-│   │   │       │   ├── helpers.lua
-│   │   │       │   └── keys.lua
-│   │   │       ├── monitors.lua
-│   │   │       └── rules.lua
+│   │   │   └── noctalia
+│   │   │       └── config.toml
 │   │   ├── environment.nix
 │   │   ├── essentials.nix
 │   │   ├── fish.nix
-│   │   ├── hyprland.nix
-│   │   ├── kitty.nix
+│   │   ├── foot.nix
 │   │   ├── noctalia.nix
+│   │   ├── obsidian.nix
 │   │   ├── packages.nix
 │   │   ├── services.nix
+│   │   ├── sway.nix
 │   │   ├── vcs.nix
-│   │   ├── xdg.nix
-│   │   └── zeditor.nix
+│   │   ├── vscode.nix
+│   │   └── xdg.nix
 │   ├── desktop.nix
+│   ├── devshell.nix
 │   ├── disko
 │   │   └── ext4-simple.nix
 │   ├── entry.nix
@@ -60,7 +48,6 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 │   ├── hosts
 │   │   ├── hp-probook-430g2.json
 │   │   └── hp-probook-430g2.nix
-│   ├── hosts.nix
 │   ├── namespaces.nix
 │   ├── nixos-core.nix
 │   ├── schemas

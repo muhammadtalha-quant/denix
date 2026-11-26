@@ -9,7 +9,6 @@
     homeManager = {
       programs = {
         ripgrep.enable = true;
-        obsidian.enable = true;
         starship = {
           enable = true;
           enableFishIntegration = true;
@@ -135,7 +134,6 @@
             ];
           };
         };
-        devenv.enable = true;
         direnv = {
           enable = true;
           enableFishIntegration = true;
@@ -155,6 +153,15 @@
         };
         nix-search-tv = {
           enable = true;
+settings = {
+	indexes = [	
+	"nixpkgs"
+	"home-manager"
+	"noogle"
+	"nixos"
+	
+		];
+};
           enableTelevisionIntegration = true;
         };
       };
