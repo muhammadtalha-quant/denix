@@ -13,7 +13,7 @@
       desktop.packages
       desktop.fish
       desktop.vcs
-      (extras.theme "gruvbox-dark-medium")
+      (extras.theme "catppuccin-macchiato")
     ];
   };
 }
