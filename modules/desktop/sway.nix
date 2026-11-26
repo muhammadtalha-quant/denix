@@ -141,6 +141,7 @@
             # ── Window Management ──
             "Mod4+q" = "kill";
             "Mod4+t" = "floating toggle, border pixel 2";
+            "Mod4+Tab" = "focus mode_toggle";
             "Mod4+f" = "fullscreen toggle";
 
             # ── Focus (Arrow Keys) ──
