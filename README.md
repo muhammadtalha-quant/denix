@@ -20,6 +20,7 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 ├── LICENSE
 ├── modules
 │   ├── defaults.nix
+│   ├── definition.nix
 │   ├── desktop
 │   │   ├── _dotfiles
 │   │   │   └── noctalia
@@ -34,9 +35,10 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 │   │   ├── services.nix
 │   │   ├── sway.nix
 │   │   ├── vcs.nix
-│   │   ├── vscodium.nix
+│   │   ├── vscode.nix
 │   │   └── xdg.nix
 │   ├── desktop.nix
+│   ├── devshell.nix
 │   ├── disko
 │   │   └── ext4-simple.nix
 │   ├── entry.nix
@@ -46,7 +48,6 @@ Configurations are organized as reusable aspects and namespaces  under `modules/
 │   ├── hosts
 │   │   ├── hp-probook-430g2.json
 │   │   └── hp-probook-430g2.nix
-│   ├── hosts.nix
 │   ├── namespaces.nix
 │   ├── nixos-core.nix
 │   ├── schemas
