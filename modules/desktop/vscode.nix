@@ -74,12 +74,14 @@
               end
 
               -- Side bars and panels
-              map("n", "<leader>e", action("workbench.view.explorer"))
+              map("n", "<leader>ee", action("workbench.view.explorer"))
               map("n", "<leader>gg", action("workbench.view.scm"))
               map("n", "<leader>pp", action("workbench.view.extensions"))
               map("n", "<leader>bs", action("workbench.action.toggleSidebarVisibility"))
               map("n", "<leader>bb", action("workbench.action.togglePanel"))
-              map("n", "<leader>t", action("workbench.action.terminal.toggleTerminal"))
+              map("n", "<leader>tt", action("workbench.action.terminal.toggleTerminal"))
+              map("n", "<leader>kk", action("workbench.action.openGlobalKeybindings"))
+              map("n", "<leader>ss", action("workbench.action.openGlobalSettings"))
 
               -- Debug sidebar + Debug Console (blocking calls keep the two in order)
               map("n", "<leader>dd", function()
@@ -90,19 +92,11 @@
               -- Find
               map("n", "<leader>:", action("workbench.action.showCommands"))
               map("n", "<leader>ff", action("workbench.action.quickOpen"))
-              map("n", "<leader>fr", action("workbench.action.openRecent"))
-              map("n", "<leader>fs", action("workbench.action.showAllSymbols"))
               map("n", "<leader>sf", action("workbench.action.findInFiles"))
-              map("n", "<leader>fw", function()
-                vscode.action("workbench.action.findInFiles", {
-                  args = { query = vim.fn.expand("<cword>") },
-                })
-              end)
 
               -- Code (built in already: gd gD gh K gH gO, = to format, gc to comment)
               map({ "n", "x" }, "<leader>ca", action("editor.action.quickFix"))
               map("n", "<leader>cr", action("editor.action.rename"))
-              map("n", "<leader>cf", action("editor.action.formatDocument"))
 
               -- Problems: d = current file, q = whole workspace
               map("n", "<leader>x", action("workbench.actions.view.problems"))
@@ -112,12 +106,10 @@
               map("n", "]q", action("editor.action.marker.nextInFiles"))
 
               -- Editors (buffers/tabs)
-              map("n", "<leader>w", action("workbench.action.files.save"))
-              map("n", "<leader>q", action("workbench.action.closeActiveEditor"))
-              map("n", "<leader>o", action("workbench.action.closeOtherEditors"))
-              map("n", "<leader>Q", action("workbench.action.closeAllEditors"))
-              map("n", "<leader>bl", action("workbench.action.showEditorsInActiveGroup"))
-              map("n", "<leader>bu", action("workbench.action.reopenClosedEditor"))
+              map("n", "<leader>bq", action("workbench.action.closeActiveEditor"))
+              map("n", "<leader>bqo", action("workbench.action.closeOtherEditors"))
+              map("n", "<leader>bqa", action("workbench.action.closeAllEditors"))
+              map("n", "<leader>bla", action("workbench.action.showEditorsInActiveGroup"))
               map("n", "[b", action("workbench.action.previousEditorInGroup"))
               map("n", "]b", action("workbench.action.nextEditorInGroup"))
 
