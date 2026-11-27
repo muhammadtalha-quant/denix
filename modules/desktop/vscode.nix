@@ -118,6 +118,8 @@
               map({ "n", "x" }, "<C-j>", action("workbench.action.navigateDown"))
               map({ "n", "x" }, "<C-k>", action("workbench.action.navigateUp"))
               map({ "n", "x" }, "<C-l>", action("workbench.action.navigateRight"))
+              map({ "n", "x" }, "<C-w>s", action("workbench.action.splitEditorDown"))
+              map({ "n", "x" }, "<C-w>v", action("workbench.action.splitEditorRight"))
 
 
               local function setup(name, config)
