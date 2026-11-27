@@ -206,8 +206,19 @@
             "editor.guides.highlightActiveIndentation" = false;
             "editor.occurrencesHighlight" = "off";
             "editor.selectionHighlight" = false;
+            "workbench.sideBar.location" = "right";
+            "workbench.editor.scrollToSwitchTabs" = true;
+            "editor.inertialScroll" = true;
+            "window.menuStyle" = "native";
+            "window.titleBarStyle" = "native";
+            "workbench.startupEditor" = "none";
+            "keyboard.dispatch" = "keyCode";
+            "workbench.activityBar.iconClickBehavior" = "focus";
+            "workbench.activityBar.compact" = true;
+            "workbench.secondarySideBar.defaultVisibility" = "hidden";
+            "editor.autoIndentOnPaste" = true;
+            "window.customTitleBarVisibility" = "never";
           };
-
           extensions = with pkgs.vscode-extensions; [
             asvetliakov.vscode-neovim
             jnoortheen.nix-ide
