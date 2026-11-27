@@ -91,7 +91,7 @@
 
               -- Find
               map("n", "<leader>:", action("workbench.action.showCommands"))
-              map("n", "<leader>ff", action("workbench.action.quickOpen"))
+              map("n", "<leader><leader>", action("workbench.action.quickOpen"))
               map("n", "<leader>sf", action("workbench.action.findInFiles"))
 
               -- Code (built in already: gd gD gh K gH gO, = to format, gc to comment)
