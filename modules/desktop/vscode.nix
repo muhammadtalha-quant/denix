@@ -95,8 +95,8 @@
               map("n", "<leader>sf", action("workbench.action.findInFiles"))
 
               -- Code (built in already: gd gD gh K gH gO, = to format, gc to comment)
-              map({ "n", "x" }, "<leader>ca", action("editor.action.quickFix"))
-              map("n", "<leader>cr", action("editor.action.rename"))
+              map({ "n", "x" }, "<leader>qf", action("editor.action.quickFix"))
+              map("n", "<leader>rn", action("editor.action.rename"))
 
               -- Problems: d = current file, q = whole workspace
               map("n", "<leader>x", action("workbench.actions.view.problems"))
