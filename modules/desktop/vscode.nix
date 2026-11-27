@@ -21,7 +21,7 @@
           lib.zipListsWith (
             lang: snippet:
             if builtins.isList lang then
-              (map (ilang: { "${ilang}" = snippet; }) lang)
+              (map (eachLangauge: { "${eachLangauge}" = snippet; }) lang)
             else
               { "${lang}" = snippet; }
           ) languages snippets
