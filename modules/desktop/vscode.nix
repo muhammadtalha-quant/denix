@@ -198,8 +198,22 @@
             "workbench.productIconTheme" = "material-product-icons";
             "window.zoomLevel" = 1;
             "workbench.modernUIFrostedGlass" = false;
-
+            "workbench.editor.titleScrollbarVisibility" = "hidden";
+            "editor.scrollbar.horizontal" = "hidden";
+            "editor.scrollbar.vertical" = "hidden";
+            "terminal.integrated.hideOnStartup" = "always";
+            "workbench.editor.restoreEditors" = false;
+            "terminal.integrated.copyOnSelection" = true;
+            "terminal.integrated.cursorBlinking" = true;
+            "editor.fontLigatures" = true;
+            "workbench.editor.restoreViewState" = false;
+            "zenMode.restore" = false;
+            "editor.copyWithSyntaxHighlighting" = false;
+            "editor.guides.highlightActiveIndentation" = false;
+            "editor.occurrencesHighlight" = "off";
+            "editor.selectionHighlight" = false;
           };
+
           extensions = with pkgs.vscode-extensions; [
             asvetliakov.vscode-neovim
             jnoortheen.nix-ide
