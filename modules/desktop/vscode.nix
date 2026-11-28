@@ -1,7 +1,7 @@
 {
   desktop.vscode.homeManager =
-    { lib, pkgs, ... }:
-    let
+    { config, lib, pkgs, ... }:
+     let
       pluginDRV = pkgs.vimPlugins.friendly-snippets;
       snippetsJSON = (lib.fromJSON (lib.readFile "${pluginDRV}/package.json")).contributes.snippets;
       languages = map (
@@ -118,8 +118,6 @@
               map({ "n", "x" }, "<C-j>", action("workbench.action.navigateDown"))
               map({ "n", "x" }, "<C-k>", action("workbench.action.navigateUp"))
               map({ "n", "x" }, "<C-l>", action("workbench.action.navigateRight"))
-              map({ "n", "x" }, "<C-w>s", action("workbench.action.splitEditorDown"))
-              map({ "n", "x" }, "<C-w>v", action("workbench.action.splitEditorRight"))
 
 
               local function setup(name, config)
@@ -218,149 +216,9 @@
             "workbench.secondarySideBar.defaultVisibility" = "hidden";
             "editor.autoIndentOnPaste" = true;
             "window.customTitleBarVisibility" = "never";
+            "editor.stickyScroll.enabled" = false;
+            "git.openRepositoryInParentFolders" = "always";
           };
-          keybindings = [
-            {
-              command = "-vscode-neovim.ctrl-b";
-              key = "ctrl+b";
-              when = "editorTextFocus && neovim.ctrlKeysNormal.b && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
-            }
-            {
-              command = "-workbench.action.closeAllGroups";
-              key = "ctrl+k ctrl+shift+w";
-            }
-            {
-              command = "-workbench.action.closeEditorsInGroup";
-              key = "ctrl+k w";
-            }
-            {
-              command = "-workbench.action.closeActiveEditor";
-              key = "ctrl+w q";
-              when = "!editorTextFocus && !filesExplorerFocus && !searchViewletFocus && !terminalFocus && neovim.mode != 'cmdline'";
-            }
-            {
-              command = "-workbench.action.closeAllEditors";
-              key = "ctrl+k ctrl+w";
-            }
-            {
-              command = "-workbench.action.closeActiveEditor";
-              key = "ctrl+w";
-            }
-            {
-              command = "-workbench.action.reopenClosedEditor";
-              key = "ctrl+shift+t";
-            }
-            {
-              command = "-workbench.action.closeUnmodifiedEditors";
-              key = "ctrl+k u";
-            }
-            {
-              command = "-workbench.action.closeWindow";
-              key = "ctrl+shift+w";
-            }
-            {
-              command = "-workbench.action.quit";
-              key = "ctrl+q";
-            }
-            {
-              command = "workbench.action.closeModalEditor";
-              key = "ctrl+w q";
-              when = "editorFocus && editorPartModal";
-            }
-            {
-              command = "-workbench.action.closeModalEditor";
-              key = "escape";
-              when = "editorFocus && editorPartModal";
-            }
-            {
-              command = "workbench.action.closeModalEditor";
-              key = "ctrl+w q";
-              when = "editorPartModal && listFocus && !treeFindOpen && !treestickyScrollFocused";
-            }
-            {
-              command = "-workbench.action.closeModalEditor";
-              key = "escape";
-              when = "editorPartModal && listFocus && !treeFindOpen && !treestickyScrollFocused";
-            }
-            {
-              command = "workbench.action.closeModalEditor";
-              key = "ctrl+w q";
-              when = "editorPartModal && !editorFocus && !listFocus";
-            }
-            {
-              command = "-workbench.action.closeModalEditor";
-              key = "escape";
-              when = "editorPartModal && !editorFocus && !listFocus";
-            }
-            {
-              command = "workbench.action.toggleModalEditorMaximized";
-              key = "ctrl+w w";
-            }
-            {
-              command = "-workbench.action.restoreAuxiliaryBar";
-              key = "ctrl+w";
-              when = "auxiliaryBarMaximized";
-            }
-            {
-              command = "-workbench.action.terminal.resizePaneLeft";
-              key = "ctrl+shift+left";
-              when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
-            }
-            {
-              command = "-workbench.action.terminal.resizePaneRight";
-              key = "ctrl+shift+right";
-              when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
-            }
-            {
-              command = "workbench.action.terminal.resizePaneUp";
-              key = "ctrl+shift+up";
-              when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
-            }
-            {
-              command = "workbench.action.terminal.resizePaneDown";
-              key = "ctrl+shift+down";
-              when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
-            }
-            {
-              command = "-workbench.action.splitEditorDown";
-              key = "ctrl+w s";
-              when = "!editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'";
-            }
-            {
-              command = "-workbench.action.splitEditorDown";
-              key = "ctrl+k ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditor";
-              key = "ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditorRight";
-              key = "ctrl+k ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditorOrthogonal";
-              key = "ctrl+k ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditorRight";
-              key = "ctrl+w v";
-              when = "!editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'";
-            }
-            {
-              command = "-workbench.action.splitEditorUp";
-              key = "ctrl+k ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditorLeft";
-              key = "ctrl+k ctrl+\\";
-            }
-            {
-              command = "-workbench.action.splitEditorInGroup";
-              key = "ctrl+k ctrl+shift+\\";
-              when = "activeEditorCanSplitInGroup";
-            }
-          ];
           extensions = with pkgs.vscode-extensions; [
             asvetliakov.vscode-neovim
             jnoortheen.nix-ide
@@ -370,5 +228,8 @@
           ];
         };
       };
-    };
-}
+      xdg.configFile."Code/User/keybindings.json".source =
+        config.lib.file.mkOutOfStoreSymlink
+          "${config.home.homeDirectory}/denix/modules/desktop/_dotfiles/Code/keybindings.json";
+        };
+    }
